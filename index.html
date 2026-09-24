@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santosh Kumar Kashyap | AI / ML Engineer & GenAI Systems</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio and Technical Blog of Santosh Kumar Kashyap - AI/ML Engineer specializing in production RAG systems, INT8 quantized transformer inference, and Graph Neural Networks.">
+  <meta name="keywords" content="Santosh Kumar Kashyap, AI Engineer, Machine Learning, GenAI, RAG, LangGraph, ONNX, PyTorch, PyTorch Geometric, FastAPI, MLOps">
+  <meta name="author" content="Santosh Kumar Kashyap">
+  <link rel="canonical" href="https://santoshkkashyap25.github.io/">
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santoshkkashyap25.github.io/">
+  <meta property="og:title" content="Santosh Kumar Kashyap | AI / ML Engineer & GenAI Systems">
+  <meta property="og:description" content="Production RAG architectures, INT8 quantized transformer inference, and Graph Neural Networks. Explore open-source repositories and engineering deep-dives.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/81047069?v=4">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Santosh Kumar Kashyap | AI / ML Engineer">
+  <meta name="twitter:description" content="Production RAG architectures, INT8 quantized transformer inference, and Graph Neural Networks.">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/81047069?v=4">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo font-mono">
+        <span class="prompt-char">&gt;</span> SK_<span class="cursor-pulse"></span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="main-navigation" id="main-nav">
+        <a href="#about" class="nav-link font-mono"><span class="nav-num">01.</span> About</a>
+        <a href="#skills" class="nav-link font-mono"><span class="nav-num">02.</span> Skills</a>
+        <a href="#projects" class="nav-link font-mono"><span class="nav-num">03.</span> Projects</a>
+        <a href="#blog" class="nav-link font-mono"><span class="nav-num">04.</span> Blog</a>
+        <a href="#journey" class="nav-link font-mono"><span class="nav-num">05.</span> Journey</a>
+        <a href="#contact" class="nav-link font-mono"><span class="nav-num">06.</span> Contact</a>
+      </nav>
+
+      <!-- Nav Actions (Command Palette & Theme Selector) -->
+      <div class="nav-actions">
+        <button class="cmd-badge-btn font-mono" onclick="window.commandPalette.toggle()" title="Open Command Palette (Ctrl+K)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="cmd-key-box">⌘K</span>
+        </button>
+
+        <div class="theme-select-wrap">
+          <select id="theme-selector" class="theme-dropdown" onchange="window.app.setTheme(this.value)" aria-label="Select Color Theme">
+            <option value="dark">Theme: Dark</option>
+            <option value="matrix">Theme: Matrix</option>
+            <option value="dracula">Theme: Dracula</option>
+            <option value="light">Theme: Light</option>
+          </select>
+        </div>
+
+        <a href="https://github.com/santoshkkashyap25" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.65rem;" title="View GitHub Profile">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO & INTERACTIVE TERMINAL SECTION
+       ========================================================================= -->
+  <main>
+    <section class="section hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Left Info -->
+        <div class="hero-content">
+          <div class="status-indicator font-mono">
+            <span class="status-dot"></span>
+            <span id="availability-status">Open to AI/ML Engineering & GenAI Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="accent-text bind-name">Santosh Kumar Kashyap</span>
+          </h1>
+
+          <div class="hero-headline font-mono bind-role">
+            AI / ML Engineer & GenAI Systems Developer
+          </div>
+
+          <p class="hero-bio bind-bio">
+            Specializing in production-ready Generative AI architectures, low-latency RAG pipelines with verifiable citations, INT8 quantized transformer inference, and Graph Neural Networks for social intelligence.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary font-mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <span>Explore Projects</span>
+            </a>
+            <a href="#blog" class="btn btn-outline font-mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+              <span>Read Blog</span>
+            </a>
+            <button onclick="window.app.copyEmail()" class="btn btn-outline font-mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="hero-stats" id="hero-stats-grid">
+            <!-- Dynamically populated from SITE_CONFIG.profile.stats -->
+          </div>
+        </div>
+
+        <!-- Hero Right: Interactive Terminal Emulator -->
+        <div class="hero-terminal-wrap" id="terminal-sec">
+          <div class="terminal-window">
+            <div class="terminal-titlebar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title font-mono">
+                santosh@ai-node:~$ <span class="git-badge">git:(main)</span>
+              </div>
+              <div class="terminal-actions-bar">
+                <button class="term-action-btn font-mono" onclick="window.terminal.execute('clear')" title="Clear Terminal">clear</button>
+              </div>
+            </div>
+
+            <!-- Scrollable Terminal Buffer -->
+            <div class="terminal-body" id="term-container">
+              <div class="terminal-banner font-mono">
+                <div class="term-ascii">
+                  _  __           _                       _    ___ 
+                 | |/ /__ _ ___| |__  _   _  __ _ _ __   / \  |_ _|
+                 | ' // _` / __| '_ \| | | |/ _` | '_ \ / _ \  | | 
+                 | . \ (_| \__ \ | | | |_| | (_| | |_) / ___ \ | | 
+                 |_|\_\__,_|___/_| |_|\__, |\__,_| .__/_/   \_\___|
+                                      |___/      |_|               
+                </div>
+                <div>AI & Machine Learning Engineering Terminal [Version 2.5.0-prod]</div>
+                <div>Connected to local node <code>santoshkkashyap25.github.io</code></div>
+                <div class="mt-1">Type <span class="term-highlight">help</span> or click prompt chips below to explore.</div>
+              </div>
+              <div id="term-output"></div>
+
+              <!-- Active Prompt Input -->
+              <div class="terminal-input-row font-mono">
+                <span class="term-prompt">santosh@ai-node:~$</span>
+                <input type="text" id="term-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type 'help' or command..." aria-label="Terminal input prompt" autofocus>
+              </div>
+            </div>
+
+            <!-- Quick Suggestion Action Chips -->
+            <div class="terminal-quick-chips font-mono">
+              <span class="chip-label">Run:</span>
+              <button class="term-chip" onclick="window.terminal.runCmd('help')">help</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('about')">about</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('projects')">projects</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('skills')">skills</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('blog')">blog</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('stats')">stats</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('contact')">contact</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('theme matrix')">theme matrix</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('clear')">clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ABOUT / OVERVIEW SECTION
+         ========================================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">ABOUT_ME</span>
+          <h2 class="section-title">Architecting Robust AI & Intelligent Systems</h2>
+          <p class="section-subtitle">
+            Bridging cutting-edge machine learning research with production-grade software engineering, low-latency APIs, and scalable distributed architectures.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          <div class="skill-category-card">
+            <h3 class="skill-category-title font-mono" style="color: var(--accent-primary); margin-bottom: 0.75rem;">
+              01 // Retrieval & Fact-Checking
+            </h3>
+            <p class="proj-desc">
+              Designing production RAG pipelines utilizing hybrid dense-sparse retrieval (BM25Okapi + vector embeddings), reciprocal rank fusion, and verifiable page-level citation extraction to eliminate LLM hallucinations.
+            </p>
+          </div>
+
+          <div class="skill-category-card">
+            <h3 class="skill-category-title font-mono" style="color: var(--accent-secondary); margin-bottom: 0.75rem;">
+              02 // Model Compression & MLOps
+            </h3>
+            <p class="proj-desc">
+              Transforming heavy transformer models into low-latency CPU and edge inference microservices with INT8 post-training quantization, ONNX Runtime optimization, and continuous Kolmogorov-Smirnov drift detection.
+            </p>
+          </div>
+
+          <div class="skill-category-card">
+            <h3 class="skill-category-title font-mono" style="color: var(--accent-tertiary); margin-bottom: 0.75rem;">
+              03 // Graph AI & Network Dynamics
+            </h3>
+            <p class="proj-desc">
+              Applying Graph Convolutional Networks (GCN) and Graph Attention Networks (GAT) to model information cascade topology and detect misinformation propagation on social networks using PyTorch Geometric and Optuna.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SKILLS MATRIX SECTION
+         ========================================================================= -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">TECH_STACK</span>
+          <h2 class="section-title">Skills & Engineering Matrix</h2>
+          <p class="section-subtitle">
+            Curated toolkit spanning Generative AI frameworks, Deep Learning architectures, MLOps tooling, and robust backend engineering.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Dynamically populated from SITE_CONFIG.skills -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PROJECTS SECTION
+         ========================================================================= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">REPOSITORIES</span>
+          <h2 class="section-title">Featured Projects & Systems</h2>
+          <p class="section-subtitle">
+            Production-grade systems, live cloud deployments, and open-source contributions directly from my GitHub.
+          </p>
+        </div>
+
+        <!-- Filter Navigation -->
+        <div class="projects-filter-bar font-mono">
+          <button class="proj-filter-btn active" onclick="window.app.filterProjects('all', this)">All Repositories</button>
+          <button class="proj-filter-btn" onclick="window.app.filterProjects('rag', this)">RAG & GenAI</button>
+          <button class="proj-filter-btn" onclick="window.app.filterProjects('mlops', this)">MLOps & Optimization</button>
+          <button class="proj-filter-btn" onclick="window.app.filterProjects('deeplearning', this)">Deep Learning & GNNs</button>
+          <button class="proj-filter-btn" onclick="window.app.filterProjects('web', this)">Systems & Web</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Dynamically populated from SITE_CONFIG.projects -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         BLOG & RESEARCH ARTICLES SECTION
+         ========================================================================= -->
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">ENGINEERING_LOG</span>
+          <h2 class="section-title">Technical Notes & Deep-Dives</h2>
+          <p class="section-subtitle">
+            In-depth breakdowns on RAG optimization, model quantization benchmarks, and graph neural network implementations.
+          </p>
+        </div>
+
+        <!-- Controls: Search & Tags -->
+        <div class="blog-controls-bar">
+          <div class="blog-search-wrap">
+            <span class="blog-search-icon font-mono">›</span>
+            <input type="text" class="blog-search-input" placeholder="Search articles or tags..." oninput="window.app.searchBlog(this.value)" aria-label="Search articles">
+          </div>
+
+          <div class="blog-tags-filter font-mono">
+            <button class="blog-tag-filter active" onclick="window.app.filterBlogByTag('all', this)">All Tags</button>
+            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('RAG', this)">RAG</button>
+            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('ONNX', this)">ONNX</button>
+            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('Quantization', this)">Quantization</button>
+            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('GNN', this)">GNN</button>
+            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('FastAPI', this)">FastAPI</button>
+          </div>
+        </div>
+
+        <!-- Blog Cards Grid -->
+        <div class="blog-grid" id="blog-grid">
+          <!-- Dynamically populated from SITE_CONFIG.blogPosts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         JOURNEY / GIT COMMIT LOG SECTION
+         ========================================================================= -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">GIT_GRAPH</span>
+          <h2 class="section-title">Journey & Commit Log</h2>
+          <p class="section-subtitle">
+            An authentic timeline of key project releases, production milestones, and machine learning milestones.
+          </p>
+        </div>
+
+        <div class="journey-container">
+          <div class="journey-timeline" id="journey-timeline">
+            <!-- Dynamically populated from SITE_CONFIG.journey -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CONTACT / TERMINAL HANDSHAKE SECTION
+         ========================================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">INIT_CONNECT</span>
+          <h2 class="section-title">Initiate Handshake</h2>
+          <p class="section-subtitle">
+            Whether you are looking to collaborate on production AI/ML initiatives, discuss RAG architectures, or explore full-time roles, let's connect.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Channels -->
+          <div class="contact-info-card">
+            <div>
+              <h3 class="contact-headline">Direct Communication Channels</h3>
+              <p class="contact-subtext">
+                Feel free to reach out via email or connect on professional networks. Response latency typically &lt; 24 hours.
+              </p>
+
+              <div class="contact-links-list font-mono">
+                <div class="contact-link-item">
+                  <span class="contact-link-icon">✉</span>
+                  <div class="contact-link-content">
+                    <div class="contact-link-label">Email</div>
+                    <div class="contact-link-value">santoshkkashyap25@gmail.com</div>
+                  </div>
+                  <button class="copy-email-btn" onclick="window.app.copyEmail()">Copy</button>
+                </div>
+
+                <a href="https://github.com/santoshkkashyap25" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                  <span class="contact-link-icon">🐙</span>
+                  <div class="contact-link-content">
+                    <div class="contact-link-label">GitHub</div>
+                    <div class="contact-link-value">github.com/santoshkkashyap25</div>
+                  </div>
+                  <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                  <span class="contact-link-icon">💼</span>
+                  <div class="contact-link-content">
+                    <div class="contact-link-label">LinkedIn</div>
+                    <div class="contact-link-value">Santosh Kumar Kashyap</div>
+                  </div>
+                  <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <a href="mailto:santoshkkashyap25@gmail.com" class="btn btn-primary font-mono" style="width: 100%;">
+                <span>Send Direct Email</span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- System Status Node -->
+          <div class="sys-status-card">
+            <div class="sys-header">
+              <span class="sys-title">&gt; SYSTEM_STATUS.log</span>
+              <span class="sys-pulse font-mono">● ONLINE</span>
+            </div>
+
+            <div class="sys-rows">
+              <div class="sys-row">
+                <span class="sys-param">NODE_HOST</span>
+                <span class="sys-val">santoshkkashyap25.github.io</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">LOCATION</span>
+                <span class="sys-val">India (IST / UTC+05:30)</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">PRIMARY_STACK</span>
+                <span class="sys-val">Python 3 • PyTorch • LangGraph • FastAPI</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">INFERENCE_RUNTIME</span>
+                <span class="sys-val">ONNX Runtime (INT8 Dynamic)</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">SECURITY_PROTOCOL</span>
+                <span class="sys-val">TLS 1.3 / Strict Attribution</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">UPTIME</span>
+                <span class="sys-val">99.98% Available</span>
+              </div>
+              <div class="sys-row">
+                <span class="sys-param">STATUS</span>
+                <span class="sys-val" style="color: var(--accent-secondary);">ALL SYSTEMS OPERATIONAL</span>
+              </div>
+            </div>
+
+            <div class="mt-2" style="font-size: 0.75rem; color: var(--text-faint); border-top: 1px dashed var(--border-subtle); padding-top: 0.75rem; margin-top: 1.25rem;">
+              Tip: Press <kbd style="background: var(--border-subtle); padding: 0.15rem 0.35rem; border-radius: 3px; color: var(--accent-primary);">Ctrl + K</kbd> to access the quick command runner anytime.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-prompt">&gt;</span>
+        <span>Santosh Kumar Kashyap &copy; 2026. Zero-build static architecture hosted on GitHub Pages.</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="#home" class="footer-link">Top ↑</a>
+        <a href="https://github.com/santoshkkashyap25" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <a href="mailto:santoshkkashyap25@gmail.com" class="footer-link">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       ARTICLE READER MODAL
+       ========================================================================= -->
+  <div class="reader-modal" id="article-reader-modal" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+    <div class="reader-window">
+      <div class="reader-progress-bar-wrap">
+        <div class="reader-progress-bar" id="reader-progress-bar"></div>
+      </div>
+
+      <div class="reader-titlebar">
+        <div class="reader-titlebar-left">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="reader-titlebar-title font-mono" id="reader-title">Article Reader</span>
+        </div>
+        <button class="reader-close-btn font-mono" id="reader-close-btn" aria-label="Close reader modal">✕ ESC</button>
+      </div>
+
+      <div class="reader-scroll-container" id="reader-scroll-container">
+        <div class="reader-meta-header">
+          <div class="reader-meta-row" id="reader-meta"></div>
+        </div>
+        <div class="reader-body" id="reader-body">
+          <!-- Rendered markdown article injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       COMMAND PALETTE MODAL (Ctrl+K / Cmd+K)
+       ========================================================================= -->
+  <div class="cmd-palette-modal" id="cmd-palette-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+    <div class="cmd-palette-box">
+      <div class="cmd-palette-input-wrap">
+        <span class="cmd-prompt-glyph font-mono">&gt;</span>
+        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a command, project, or section name..." autocomplete="off" spellcheck="false">
+        <span class="cmd-esc-tag font-mono">ESC</span>
+      </div>
+      <div class="cmd-palette-results" id="cmd-palette-results">
+        <!-- Filtered items dynamically rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="site-toast" id="site-toast" role="status" aria-live="polite"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/markdown-renderer.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
