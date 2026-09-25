@@ -14,7 +14,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 480px;
+  height: 460px;
+  max-width: 520px;
+  width: 100%;
+  margin-left: auto;
   position: relative;
   transition: border-color var(--transition-normal);
 }
@@ -112,6 +115,10 @@
 .term-ascii {
   color: var(--accent-primary);
   font-weight: 700;
+  font-size: 0.65rem;
+  line-height: 1.15;
+  white-space: pre;
+  overflow-x: auto;
   margin-bottom: 0.4rem;
 }
 
@@ -1719,6 +1726,10 @@
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  .terminal-window {
+    margin: 0 auto;
+    max-width: 520px;
   }
   .skills-grid {
     grid-template-columns: 1fr;
