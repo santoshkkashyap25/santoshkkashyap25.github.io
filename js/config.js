@@ -9,8 +9,7 @@ const SITE_CONFIG = {
     handle: "santoshkkashyap25",
     role: "AI / ML Engineer & GenAI Systems Developer",
     statusText: "Open to AI/ML Engineering & GenAI Roles",
-    isAvailable: true,
-    bio: "AI / ML Engineer specializing in production-ready Generative AI architectures, low-latency RAG pipelines with verifiable citations, INT8 quantized transformer inference, and Graph Neural Networks for social intelligence.",
+    bio: "AI / ML Engineer focused on designing intelligent systems, machine learning pipelines, generative AI solutions, and deep learning architectures.",
     location: "India",
     email: "santoshkkashyap25@gmail.com",
     github: "https://github.com/santoshkkashyap25",
@@ -260,24 +259,6 @@ const SITE_CONFIG = {
       technologies: ["XGBoost", "Probability Calibration", "FastAPI", "Streamlit", "Cost-Sensitive Learning"],
       githubUrl: "https://github.com/santoshkkashyap25/insurance-default-risk-profiler",
       demoUrl: "https://insurance-default-risk-profiler.onrender.com/",
-      isFeatured: false
-    },
-    {
-      id: "kart-ecommerce",
-      title: "Kart Full-Stack E-Commerce Platform",
-      category: "web",
-      categoryName: "Systems & Web",
-      badge: "FULL-STACK",
-      stars: 1,
-      shortDescription: "Full-stack e-commerce web platform built with Django. Features dynamic search & filtering, real-time AJAX cart, multi-address checkout pipeline, and custom administrative dashboard.",
-      highlights: [
-        "Zero-page-reload AJAX shopping cart and wishlist management",
-        "Comprehensive order fulfillment lifecycle and automated notifications",
-        "Optimized database queries with Django ORM indexing"
-      ],
-      technologies: ["Django", "Python", "AJAX", "PostgreSQL", "Bootstrap"],
-      githubUrl: "https://github.com/santoshkkashyap25/kart-ecommerce",
-      demoUrl: null,
       isFeatured: false
     },
     {

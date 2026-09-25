@@ -83,9 +83,8 @@ class CommandPalette {
   getItems() {
     const items = [
       // Sections
-      { type: "Section", title: "About Overview", desc: "Background & current engineering status", action: () => window.app.scrollToSection("about") },
       { type: "Section", title: "Industry Experience", desc: "AI/ML Engineer & SDE experience (NDA-safe)", action: () => window.app.scrollToSection("experience") },
-      { type: "Section", title: "Featured Projects", desc: "Production repositories and live demos", action: () => window.app.scrollToSection("projects") },
+      { type: "Section", title: "Personal Projects", desc: "Open-source repositories and live demos", action: () => window.app.scrollToSection("projects") },
       { type: "Section", title: "Research & Honors", desc: "IEEE publication, M.Tech/B.Tech Gold Medal, GATE CS", action: () => window.app.scrollToSection("research") },
       { type: "Section", title: "Skills & Tech Matrix", desc: "GenAI, Search, Deep Learning, MLOps stack", action: () => window.app.scrollToSection("skills") },
       { type: "Section", title: "Technical Blog & Substack", desc: "Engineering deep-dives & architecture breakdowns", action: () => window.app.scrollToSection("blog") },

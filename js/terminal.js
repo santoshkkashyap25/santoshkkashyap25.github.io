@@ -111,7 +111,7 @@ class TerminalController {
 
       case "projects":
         let projHtml = '<div class="term-projects-list">';
-        projHtml += '<div class="term-muted">Showing production repositories (click to view or type <code>repo [name]</code>):</div>';
+        projHtml += '<div class="term-muted">Showing personal projects (click to view or type <code>repo [name]</code>):</div>';
         SITE_CONFIG.projects.forEach((p, idx) => {
           projHtml += `
             <div class="term-proj-item">
