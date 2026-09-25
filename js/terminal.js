@@ -10,8 +10,8 @@ class TerminalController {
     this.history = [];
     this.historyIndex = -1;
     this.commandList = [
-      "help", "about", "skills", "projects", "blog", "read",
-      "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
+      "help", "about", "experience", "skills", "projects", "research",
+      "education", "blog", "read", "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
     ];
 
     if (this.input) {
@@ -180,6 +180,47 @@ class TerminalController {
         }
         break;
 
+      case "experience":
+        let expHtml = '<div class="term-exp-list">';
+        SITE_CONFIG.experience.forEach(exp => {
+          expHtml += `
+            <div class="term-proj-item">
+              <span class="term-accent font-bold">${exp.role}</span> @ <span class="term-highlight">${exp.company}</span>
+              <span class="term-badge">${exp.period}</span>
+              <div class="term-text text-sm">${exp.highlights[0]}</div>
+              <div class="term-tech-tags">${exp.stack.slice(0, 5).join(" • ")}</div>
+            </div>
+          `;
+        });
+        expHtml += '</div>';
+        this.appendLine(expHtml);
+        break;
+
+      case "research":
+        const res = SITE_CONFIG.research;
+        this.appendLine(`
+<div class="term-box">
+  <div class="term-highlight font-bold">${res.title}</div>
+  <div class="term-accent">${res.badge} • ${res.citation}</div>
+  <p class="term-text mt-1">${res.summary}</p>
+  <div class="term-tech-tags mt-1">${res.tags.join(" • ")}</div>
+</div>
+        `);
+        break;
+
+      case "education":
+        let eduHtml = '<div class="term-box">';
+        eduHtml += '<div class="term-highlight font-bold">Academic Degrees & Honors:</div>';
+        SITE_CONFIG.education.forEach(e => {
+          eduHtml += `<div class="mt-1"><span class="term-accent">${e.degree}</span> - ${e.institution} <span class="term-badge">${e.grade}</span></div>`;
+        });
+        SITE_CONFIG.honors.forEach(h => {
+          eduHtml += `<div class="term-muted text-sm mt-1">${h.icon} <strong>${h.title}</strong> (${h.issuer})</div>`;
+        });
+        eduHtml += '</div>';
+        this.appendLine(eduHtml);
+        break;
+
       case "stats":
         this.appendLine(`
 <div class="term-box">
@@ -241,13 +282,16 @@ class TerminalController {
     this.appendLine(`
 <div class="term-help-table">
   <div class="term-help-row"><span class="term-cmd font-bold">about</span> <span class="term-desc">Display profile summary, focus, and status</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">experience</span> <span class="term-desc">Inspect NDA-safe engineering roles & highlights</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">skills</span> <span class="term-desc">Show categorized AI/ML and engineering skill matrix</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">projects</span> <span class="term-desc">List GitHub repositories with live links</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">research</span> <span class="term-desc">View IEEE publication & concurrency deep learning paper</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">education</span> <span class="term-desc">Inspect M.Tech/B.Tech degrees, Gold Medal & honors</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">repo &lt;name&gt;</span> <span class="term-desc">Directly open a repository in GitHub (e.g. repo rag)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">blog</span> <span class="term-desc">List technical articles and research breakdowns</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1 or read rag)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">stats</span> <span class="term-desc">Inspect engineering metrics & system benchmarks</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">contact</span> <span class="term-desc">Get direct email and social connection links</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">contact</span> <span class="term-desc">Get direct email, Substack, and social channels</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">theme &lt;name&gt;</span> <span class="term-desc">Change UI palette (dark, matrix, dracula, light)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">clear</span> <span class="term-desc">Clear the terminal screen</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">gui</span> <span class="term-desc">Scroll to graphical projects showcase</span></div>

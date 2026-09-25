@@ -21,52 +21,153 @@ const SITE_CONFIG = {
 
   skills: [
     {
-      category: "Generative AI & RAG Systems",
+      category: "GenAI & Agentic Systems",
       icon: "cpu",
       skills: [
-        { name: "LangGraph / LangChain", level: "Expert", tag: "Production" },
-        { name: "Live RAG & BM25 Re-Ranking", level: "Expert", tag: "Architecture" },
-        { name: "ChromaDB & Vector Databases", level: "Advanced", tag: "Storage" },
+        { name: "LangGraph / LangChain", level: "Expert", tag: "Workflows" },
+        { name: "Model Context Protocol (MCP)", level: "Expert", tag: "Protocols" },
+        { name: "LiteLLM & Dynamic Routing", level: "Expert", tag: "Inference" },
+        { name: "Tool & Function Calling", level: "Expert", tag: "Agents" },
+        { name: "Guardrails (HarmBench / IFEval)", level: "Expert", tag: "Safety" },
+        { name: "Prompt Hierarchy & Jailbreak Defense", level: "Expert", tag: "Security" },
         { name: "Token Streaming (Groq / Gemini)", level: "Expert", tag: "Low Latency" },
-        { name: "Page-Level Citation Extraction", level: "Expert", tag: "Evaluation" },
-        { name: "Multi-Model Orchestration", level: "Advanced", tag: "Reasoning" }
+        { name: "Page-Level Citation Extraction", level: "Expert", tag: "Attribution" }
       ]
     },
     {
-      category: "Deep Learning & NLP",
+      category: "Search & Vector Retrieval",
       icon: "network",
       skills: [
-        { name: "PyTorch & PyTorch Geometric", level: "Expert", tag: "GNNs" },
-        { name: "RoBERTa / BERT / Transformers", level: "Expert", tag: "NLP" },
-        { name: "GCN, GAT & GraphSAGE", level: "Advanced", tag: "Graph AI" },
-        { name: "Hugging Face Ecosystem", level: "Advanced", tag: "Models" },
-        { name: "Hyperparameter Tuning (Optuna)", level: "Advanced", tag: "Optimization" },
-        { name: "Sentence-Transformers Embeddings", level: "Expert", tag: "Vectors" }
+        { name: "Elasticsearch Hybrid Search", level: "Expert", tag: "Enterprise" },
+        { name: "MongoDB Atlas Vector Search", level: "Expert", tag: "HNSW" },
+        { name: "BM25Okapi Lexical Re-Ranking", level: "Expert", tag: "Sparse Search" },
+        { name: "FAISS & ChromaDB", level: "Advanced", tag: "Vector Index" },
+        { name: "Weaviate Vector DB", level: "Advanced", tag: "Storage" },
+        { name: "Reciprocal Rank Fusion (RRF)", level: "Expert", tag: "Hybrid Search" }
       ]
     },
     {
-      category: "MLOps & Model Optimization",
+      category: "Machine Learning & MLOps",
       icon: "server",
       skills: [
-        { name: "INT8 Quantization & ONNX Runtime", level: "Expert", tag: "Inference" },
-        { name: "Kolmogorov-Smirnov Drift Detection", level: "Advanced", tag: "Monitoring" },
-        { name: "Probability Calibration (Isotonic/Sigmoid)", level: "Expert", tag: "Reliability" },
-        { name: "FastAPI Async Microservices", level: "Expert", tag: "High Throughput" },
-        { name: "Docker Containerization", level: "Advanced", tag: "DevOps" },
-        { name: "Cost-Sensitive XGBoost Learning", level: "Advanced", tag: "Class Imbalance" }
+        { name: "PyTorch & PyTorch Geometric", level: "Expert", tag: "Deep Learning" },
+        { name: "INT8 Quantization & ONNX Runtime", level: "Expert", tag: "Inference Speed" },
+        { name: "TensorFlow & scikit-learn", level: "Advanced", tag: "ML Frameworks" },
+        { name: "MLflow Model Tracking", level: "Advanced", tag: "Lifecycle" },
+        { name: "Kolmogorov-Smirnov Drift Testing", level: "Expert", tag: "Monitoring" },
+        { name: "Probability Calibration (Isotonic)", level: "Expert", tag: "Class Imbalance" },
+        { name: "Graph Neural Networks (GCN/GAT)", level: "Advanced", tag: "Graph AI" }
       ]
     },
     {
-      category: "Core Stack & Engineering",
+      category: "Backend, Security & Cloud",
       icon: "code",
       skills: [
-        { name: "Python 3 (Asyncio, NumPy, Pandas)", level: "Expert", tag: "Primary" },
-        { name: "JavaScript / Modern Web / DOM", level: "Advanced", tag: "Full-Stack" },
-        { name: "Django & REST Framework", level: "Advanced", tag: "Web" },
-        { name: "SQLite, PostgreSQL & NoSQL", level: "Advanced", tag: "Databases" },
-        { name: "Git, GitHub Actions & CI/CD", level: "Expert", tag: "Workflow" },
-        { name: "Linux, Shell & Cloud (Render/AWS)", level: "Advanced", tag: "Infra" }
+        { name: "FastAPI Async Microservices", level: "Expert", tag: "High Throughput" },
+        { name: "Redis Multi-tier Caching (<1ms)", level: "Expert", tag: "Performance" },
+        { name: "PostgreSQL & SQLite", level: "Advanced", tag: "Databases" },
+        { name: "AES-256-GCM & HMAC Indexing", level: "Advanced", tag: "Security" },
+        { name: "Docker & Docker Compose", level: "Expert", tag: "Containers" },
+        { name: "AWS Cloud Infrastructure", level: "Advanced", tag: "Deployment" },
+        { name: "Django & REST Framework", level: "Advanced", tag: "Full-Stack" }
       ]
+    }
+  ],
+
+  experience: [
+    {
+      company: "Tecorb Technologies",
+      role: "AI / ML Engineer",
+      location: "Noida, Uttar Pradesh",
+      period: "Nov 2024 – Present",
+      type: "Full-Time",
+      highlights: [
+        "Architected dual-source parallel RAG retrieval pipelines using MongoDB Atlas HNSW Vector Search and all-MiniLM-L6-v2, cutting retrieval latency by 50% (500ms → 250ms) across concurrent knowledge stores.",
+        "Engineered deterministic cosine-similarity relevance gating (≥ 0.3) that short-circuits LLM generation for out-of-scope context, eliminating unnecessary token expenditure and preventing hallucinations.",
+        "Built a thread-safe 2-tier caching subsystem (L1 in-memory TTL + L2 Redis across Uvicorn workers) achieving <1ms response times for cache hits with automated auditing across 5 quality dimensions.",
+        "Designed and implemented multi-layered LLM safety and jailbreak guardrails via prompt hierarchy decoupling, achieving a 100% refusal rate across 198 HarmBench vectors.",
+        "Constructed empirical LLM evaluation harnesses benchmarking persona fidelity, instruction following (IFEval), and capability retention across multiple model families.",
+        "Engineered containerized multi-channel agent runtimes streaming inference across WhatsApp, Telegram, and Slack via LiteLLM dynamic routing and advisory-register gating."
+      ],
+      stack: ["MongoDB Atlas Vector", "FastAPI", "Redis", "LiteLLM", "HarmBench & IFEval", "Docker", "PostgreSQL", "Python"]
+    },
+    {
+      company: "Shorthills AI",
+      role: "Software Development Engineer (SDE 1)",
+      location: "Gurugram, Haryana",
+      period: "Sep 2024 – Aug 2025",
+      type: "Full-Time",
+      highlights: [
+        "Developed conversational AI chatbots and multi-turn product research workflows analyzing 18.6M+ unstructured reviews across 1,500+ categories.",
+        "Built enterprise RAG conversational pipelines using LangChain, Elasticsearch, and LLMs for grounded, context-aware answer generation.",
+        "Architected automated document ingestion and preprocessing pipelines (OCR, structured text parsing, metadata extraction) for multi-hundred-page technical manuals.",
+        "Implemented function and tool calling, conversational memory persistence, dynamic recommendation flows, and token streaming for responsive chat interfaces.",
+        "Engineered an automated root-cause analysis assistant surfacing diagnostic failure modes and historical remediation patterns from technical datasets."
+      ],
+      stack: ["LangChain", "Elasticsearch", "FastAPI", "OCR & Document AI", "Prompt Engineering", "Python"]
+    },
+    {
+      company: "KVCH Pvt. Ltd.",
+      role: "Machine Learning Intern",
+      location: "Noida, Uttar Pradesh",
+      period: "Feb 2021 – Jul 2021",
+      type: "Internship",
+      highlights: [
+        "Engineered text processing, feature extraction, and NLP classification pipelines using Python and scikit-learn.",
+        "Conducted exploratory data analysis, dataset preprocessing, and baseline machine learning model evaluations."
+      ],
+      stack: ["Python", "scikit-learn", "NLP", "Data Preprocessing"]
+    }
+  ],
+
+  research: {
+    title: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN",
+    publisher: "IEEE",
+    badge: "IEEE PUBLICATION",
+    citation: "IEEE Conference Proceedings",
+    summary: "A deep learning framework for automated data race detection in OpenMP parallel computing programs using Abstract Syntax Trees (ASTs), text vectorization, neural embeddings, and a Deep Convolutional Neural Network (DCNN).",
+    highlights: [
+      "Achieved 89.60% accuracy and 89.60% F1-score on synchronization-based parallel datasets, significantly outperforming baseline CNN approaches.",
+      "Engineered random-search hyperparameter optimization with early stopping, model checkpointing, and ReduceLROnPlateau dynamic scheduling."
+    ],
+    tags: ["Deep Learning", "AST Analysis", "OpenMP Concurrency", "DCNN", "Hyperparameter Optimization", "IEEE"]
+  },
+
+  education: [
+    {
+      institution: "Malaviya National Institute of Technology (MNIT), Jaipur",
+      degree: "M.Tech in Computer Science and Engineering",
+      period: "Aug 2022 – Jun 2024",
+      grade: "CGPA: 8.47 / 10",
+      details: "Core focus on advanced algorithms, deep learning architectures, and distributed systems."
+    },
+    {
+      institution: "Himachal Pradesh Technical University, Hamirpur",
+      degree: "B.Tech in Computer Science and Engineering",
+      period: "Aug 2017 – Jun 2021",
+      grade: "CGPA: 8.99 / 10 • University Gold Medalist 🥇",
+      details: "Graduated Rank 1 across the university. Strong foundations in computer systems, mathematics, and data structures."
+    }
+  ],
+
+  honors: [
+    {
+      icon: "🥇",
+      title: "University Gold Medalist (Rank 1)",
+      issuer: "Himachal Pradesh Technical University",
+      desc: "Awarded University Gold Medal for securing 1st Rank in B.Tech Computer Science & Engineering (CGPA 8.99/10, 2021)."
+    },
+    {
+      icon: "⚡",
+      title: "GATE CS Qualified",
+      issuer: "Ministry of Education, Govt. of India",
+      desc: "Qualified the prestigious Graduate Aptitude Test in Engineering (GATE 2022) in Computer Science & Information Technology."
+    },
+    {
+      icon: "💡",
+      title: "900+ Algorithmic Problems Solved",
+      issuer: "LeetCode & GeeksforGeeks",
+      desc: "Solved over 900 algorithmic and system design challenges spanning dynamic programming, graphs, trees, and concurrency."
     }
   ],
 
@@ -281,11 +382,14 @@ const SITE_CONFIG = {
   ],
 
   terminalCommands: {
-    help: "List available commands: `about`, `skills`, `projects`, `blog`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
+    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
     about: "Santosh Kumar Kashyap - AI/ML Engineer specializing in GenAI, RAG architectures, INT8 Quantized Transformers, and Graph Neural Networks.",
-    stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Target Latency: <1.2s | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
-    skills: "Categories: GenAI & RAG, Deep Learning & NLP, MLOps & Optimization, Backend Systems.",
-    contact: "Email: santoshkkashyap25@gmail.com | GitHub: https://github.com/santoshkkashyap25",
+    experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
+    research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]",
+    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (8.99 CGPA, Gold Medalist 🥇)",
+    stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
+    skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Backend & Cloud.",
+    contact: "Email: santoshkkashyap25@gmail.com | GitHub: https://github.com/santoshkkashyap25 | Substack: https://substack.com/@skknotes",
     clear: "Clear terminal buffer"
   }
 };

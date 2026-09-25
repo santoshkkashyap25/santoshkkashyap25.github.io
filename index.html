@@ -45,11 +45,12 @@
       <!-- Desktop & Mobile Navigation Links -->
       <nav class="main-navigation" id="main-nav">
         <a href="#about" class="nav-link font-mono"><span class="nav-num">01.</span> About</a>
-        <a href="#skills" class="nav-link font-mono"><span class="nav-num">02.</span> Skills</a>
+        <a href="#experience" class="nav-link font-mono"><span class="nav-num">02.</span> Experience</a>
         <a href="#projects" class="nav-link font-mono"><span class="nav-num">03.</span> Projects</a>
-        <a href="#blog" class="nav-link font-mono"><span class="nav-num">04.</span> Blog</a>
-        <a href="#journey" class="nav-link font-mono"><span class="nav-num">05.</span> Journey</a>
-        <a href="#contact" class="nav-link font-mono"><span class="nav-num">06.</span> Contact</a>
+        <a href="#research" class="nav-link font-mono"><span class="nav-num">04.</span> Research</a>
+        <a href="#skills" class="nav-link font-mono"><span class="nav-num">05.</span> Skills</a>
+        <a href="#blog" class="nav-link font-mono"><span class="nav-num">06.</span> Blog</a>
+        <a href="#contact" class="nav-link font-mono"><span class="nav-num">07.</span> Contact</a>
       </nav>
 
       <!-- Nav Actions (Command Palette & Theme Selector) -->
@@ -124,6 +125,16 @@
               </svg>
               <span>Read Blog</span>
             </a>
+            <a href="RESUME.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" title="View / Download Resume (PDF)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>Resume (PDF)</span>
+            </a>
             <button onclick="window.app.copyEmail()" class="btn btn-outline font-mono">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -181,7 +192,9 @@
               <span class="chip-label">Run:</span>
               <button class="term-chip" onclick="window.terminal.runCmd('help')">help</button>
               <button class="term-chip" onclick="window.terminal.runCmd('about')">about</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('experience')">experience</button>
               <button class="term-chip" onclick="window.terminal.runCmd('projects')">projects</button>
+              <button class="term-chip" onclick="window.terminal.runCmd('research')">research</button>
               <button class="term-chip" onclick="window.terminal.runCmd('skills')">skills</button>
               <button class="term-chip" onclick="window.terminal.runCmd('blog')">blog</button>
               <button class="term-chip" onclick="window.terminal.runCmd('stats')">stats</button>
@@ -239,20 +252,20 @@
     </section>
 
     <!-- =========================================================================
-         SKILLS MATRIX SECTION
+         INDUSTRY EXPERIENCE SECTION (NDA-SAFE)
          ========================================================================= -->
-    <section class="section" id="skills">
+    <section class="section" id="experience">
       <div class="container">
         <div class="section-header">
-          <span class="section-label font-mono">TECH_STACK</span>
-          <h2 class="section-title">Skills & Engineering Matrix</h2>
+          <span class="section-label font-mono">CAREER_HISTORY</span>
+          <h2 class="section-title">Industry Engineering Experience</h2>
           <p class="section-subtitle">
-            Curated toolkit spanning Generative AI frameworks, Deep Learning architectures, MLOps tooling, and robust backend engineering.
+            Track record architecting enterprise RAG architectures, low-latency microservices, LLM safety guardrails, and automated document AI pipelines.
           </p>
         </div>
 
-        <div class="skills-grid" id="skills-container">
-          <!-- Dynamically populated from SITE_CONFIG.skills -->
+        <div class="experience-list" id="experience-container">
+          <!-- Dynamically populated from SITE_CONFIG.experience -->
         </div>
       </div>
     </section>
@@ -282,6 +295,50 @@
         <!-- Projects Grid -->
         <div class="projects-grid" id="projects-grid">
           <!-- Dynamically populated from SITE_CONFIG.projects -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         RESEARCH PUBLICATION & ACADEMIC HONORS SECTION
+         ========================================================================= -->
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">SCHOLARLY_WORK</span>
+          <h2 class="section-title">Research & Academic Honors</h2>
+          <p class="section-subtitle">
+            Peer-reviewed IEEE publication on deep learning concurrency detection, M.Tech degree from MNIT Jaipur, and University Gold Medal.
+          </p>
+        </div>
+
+        <!-- IEEE Research Publication Card -->
+        <div id="research-card-wrap">
+          <!-- Dynamically populated from SITE_CONFIG.research -->
+        </div>
+
+        <!-- Education & Honors Grid -->
+        <div id="education-honors-wrap">
+          <!-- Dynamically populated from SITE_CONFIG.education & SITE_CONFIG.honors -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SKILLS MATRIX SECTION
+         ========================================================================= -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label font-mono">TECH_STACK</span>
+          <h2 class="section-title">Skills & Engineering Matrix</h2>
+          <p class="section-subtitle">
+            Curated toolkit spanning Generative AI frameworks, Deep Learning architectures, MLOps tooling, and robust backend engineering.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Dynamically populated from SITE_CONFIG.skills -->
         </div>
       </div>
     </section>

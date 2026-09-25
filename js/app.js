@@ -17,8 +17,10 @@ class PortfolioApp {
   init() {
     this.setTheme(this.currentTheme);
     this.renderHeaderAndHero();
-    this.renderSkills();
+    this.renderExperience();
     this.renderProjects();
+    this.renderResearchAndHonors();
+    this.renderSkills();
     this.renderBlog();
     this.renderJourney();
     this.initNavigation();
@@ -51,6 +53,102 @@ class PortfolioApp {
     const statusEl = document.getElementById("availability-status");
     if (statusEl) {
       statusEl.textContent = SITE_CONFIG.profile.statusText;
+    }
+  }
+
+  renderExperience() {
+    const container = document.getElementById("experience-container");
+    if (!container || !SITE_CONFIG.experience) return;
+
+    container.innerHTML = SITE_CONFIG.experience.map((exp, idx) => `
+      <div class="exp-card ${idx === 0 ? "exp-current" : ""}">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-role-row font-mono">
+              <h3 class="exp-role">${exp.role}</h3>
+              <span class="exp-company">@ ${exp.company}</span>
+              <span class="exp-badge">${exp.type}</span>
+            </div>
+            <div class="exp-meta-row font-mono">
+              <span class="exp-period">📅 ${exp.period}</span>
+              <span class="exp-location">📍 ${exp.location}</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="exp-highlights">
+          ${exp.highlights.map(h => `<li><span class="bullet">›</span> <span>${h}</span></li>`).join("")}
+        </ul>
+
+        <div class="exp-stack">
+          ${exp.stack.map(s => `<span class="tech-chip font-mono">${s}</span>`).join("")}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  renderResearchAndHonors() {
+    const researchEl = document.getElementById("research-card-wrap");
+    if (researchEl && SITE_CONFIG.research) {
+      const res = SITE_CONFIG.research;
+      researchEl.innerHTML = `
+        <div class="research-card">
+          <div class="research-header">
+            <span class="proj-badge font-mono">${res.badge}</span>
+            <span class="proj-category font-mono">${res.citation}</span>
+          </div>
+          <h3 class="research-title font-mono">${res.title}</h3>
+          <p class="proj-desc">${res.summary}</p>
+          <ul class="proj-highlights">
+            ${res.highlights.map(h => `<li><span class="bullet">›</span> ${h}</li>`).join("")}
+          </ul>
+          <div class="proj-tech-stack">
+            ${res.tags.map(t => `<span class="tech-chip font-mono">${t}</span>`).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    const eduHonorsEl = document.getElementById("education-honors-wrap");
+    if (eduHonorsEl && SITE_CONFIG.education && SITE_CONFIG.honors) {
+      eduHonorsEl.innerHTML = `
+        <div class="edu-honors-grid">
+          <!-- Education Column -->
+          <div class="edu-col">
+            <h3 class="edu-sec-title font-mono">🎓 Academic Degrees</h3>
+            <div class="edu-items-list">
+              ${SITE_CONFIG.education.map(edu => `
+                <div class="edu-item">
+                  <div class="edu-header">
+                    <span class="edu-degree font-mono font-bold">${edu.degree}</span>
+                    <span class="edu-period font-mono">${edu.period}</span>
+                  </div>
+                  <div class="edu-institution">${edu.institution}</div>
+                  <div class="edu-grade font-mono">${edu.grade}</div>
+                  <p class="edu-details">${edu.details}</p>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Honors Column -->
+          <div class="honors-col">
+            <h3 class="edu-sec-title font-mono">🏆 Honors & Algorithmic Excellence</h3>
+            <div class="honors-items-list">
+              ${SITE_CONFIG.honors.map(h => `
+                <div class="honor-item">
+                  <span class="honor-icon">${h.icon}</span>
+                  <div class="honor-info">
+                    <div class="honor-title font-mono font-bold">${h.title}</div>
+                    <div class="honor-issuer font-mono">${h.issuer}</div>
+                    <p class="honor-desc">${h.desc}</p>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
     }
   }
 
