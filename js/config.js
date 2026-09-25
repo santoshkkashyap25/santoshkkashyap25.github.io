@@ -15,13 +15,7 @@ const SITE_CONFIG = {
     email: "santoshkkashyap25@gmail.com",
     github: "https://github.com/santoshkkashyap25",
     linkedin: "https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/",
-    website: "https://santoshkkashyap25.github.io",
-    stats: [
-      { label: "Public Repositories", value: "14+" },
-      { label: "Production Deployments", value: "5+" },
-      { label: "Negative Recall Calibrated", value: ">90%" },
-      { label: "Query Latency (RAG)", value: "<1.2s" }
-    ]
+    website: "https://santoshkkashyap25.github.io"
   },
 
   skills: [

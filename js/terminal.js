@@ -181,17 +181,14 @@ class TerminalController {
         break;
 
       case "stats":
-        let statsHtml = '<div class="term-stats-grid">';
-        SITE_CONFIG.profile.stats.forEach(s => {
-          statsHtml += `
-            <div class="term-stat-box">
-              <div class="term-stat-val">${s.value}</div>
-              <div class="term-stat-lbl">${s.label}</div>
-            </div>
-          `;
-        });
-        statsHtml += '</div>';
-        this.appendLine(statsHtml);
+        this.appendLine(`
+<div class="term-box">
+  <div class="term-highlight">System Performance & Benchmarks:</div>
+  <div>Uptime: <span class="term-accent">99.98% Available</span></div>
+  <div>Production Deployments: <span class="term-accent">Active on Cloud</span></div>
+  <div>Primary Stack: <span class="term-accent">PyTorch, LangGraph, FastAPI, ONNX Runtime</span></div>
+</div>
+        `);
         break;
 
       case "contact":

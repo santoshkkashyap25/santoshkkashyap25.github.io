@@ -17,7 +17,6 @@ class PortfolioApp {
   init() {
     this.setTheme(this.currentTheme);
     this.renderHeaderAndHero();
-    this.renderStats();
     this.renderSkills();
     this.renderProjects();
     this.renderBlog();
@@ -53,18 +52,6 @@ class PortfolioApp {
     if (statusEl) {
       statusEl.textContent = SITE_CONFIG.profile.statusText;
     }
-  }
-
-  renderStats() {
-    const container = document.getElementById("hero-stats-grid");
-    if (!container) return;
-
-    container.innerHTML = SITE_CONFIG.profile.stats.map(s => `
-      <div class="stat-card">
-        <div class="stat-val font-mono">${s.value}</div>
-        <div class="stat-lbl">${s.label}</div>
-      </div>
-    `).join("");
   }
 
   renderSkills() {
