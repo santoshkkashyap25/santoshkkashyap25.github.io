@@ -83,12 +83,11 @@ class CommandPalette {
   getItems() {
     const items = [
       // Sections
-      { type: "Section", title: "Industry Experience", desc: "AI/ML Engineer & SDE experience (NDA-safe)", action: () => window.app.scrollToSection("experience") },
+      { type: "Section", title: "Experience", desc: "AI/ML Engineer & SDE experience (NDA-safe)", action: () => window.app.scrollToSection("experience") },
       { type: "Section", title: "Personal Projects", desc: "Open-source repositories and live demos", action: () => window.app.scrollToSection("projects") },
-      { type: "Section", title: "Research & Honors", desc: "IEEE publication, M.Tech/B.Tech Gold Medal, GATE CS", action: () => window.app.scrollToSection("research") },
+      { type: "Section", title: "Research & Education", desc: "IEEE co-authored publication and M.Tech / B.Tech degrees", action: () => window.app.scrollToSection("research") },
       { type: "Section", title: "Skills & Tech Matrix", desc: "GenAI, Search, Deep Learning, MLOps stack", action: () => window.app.scrollToSection("skills") },
       { type: "Section", title: "Technical Blog & Substack", desc: "Engineering deep-dives & architecture breakdowns", action: () => window.app.scrollToSection("blog") },
-      { type: "Section", title: "Journey & Git Log", desc: "Milestones and career commits", action: () => window.app.scrollToSection("journey") },
       { type: "Section", title: "Interactive Terminal", desc: "CLI shell emulator in hero", action: () => window.app.scrollToSection("terminal-sec") },
       { type: "Section", title: "Contact Information", desc: "Email, Substack, and professional channels", action: () => window.app.scrollToSection("contact") },
 
@@ -99,6 +98,7 @@ class CommandPalette {
       { type: "Theme", title: "Switch Theme: Light (Clean Monospace)", desc: "Minimalist light code editor style", action: () => window.app.setTheme("light") },
 
       // Quick Actions
+      { type: "Action", title: "Request Resume via Email", desc: "Send an email request for latest resume", action: () => window.location.href = "mailto:santoshkkashyap25@gmail.com?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" },
       { type: "Action", title: "Copy Email (santoshkkashyap25@gmail.com)", desc: "Copies email directly to clipboard", action: () => window.app.copyEmail() },
       { type: "Action", title: "Open GitHub Profile", desc: "Visit https://github.com/santoshkkashyap25", action: () => window.open(SITE_CONFIG.profile.github, "_blank") },
       { type: "Action", title: "Open LinkedIn Profile", desc: "Connect professionally on LinkedIn", action: () => window.open(SITE_CONFIG.profile.linkedin, "_blank") },

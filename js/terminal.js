@@ -11,7 +11,7 @@ class TerminalController {
     this.historyIndex = -1;
     this.commandList = [
       "help", "about", "experience", "skills", "projects", "research",
-      "education", "blog", "read", "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
+      "education", "blog", "read", "resume", "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
     ];
 
     if (this.input) {
@@ -88,7 +88,7 @@ class TerminalController {
   <div class="term-highlight font-bold">${SITE_CONFIG.profile.name} (${SITE_CONFIG.profile.handle})</div>
   <div class="term-accent">${SITE_CONFIG.profile.role}</div>
   <p class="term-text mt-1">${SITE_CONFIG.profile.bio}</p>
-  <div class="term-muted mt-1">📍 Location: ${SITE_CONFIG.profile.location} | Status: ${SITE_CONFIG.profile.statusText}</div>
+  <div class="term-muted mt-1">Location: ${SITE_CONFIG.profile.location} | Status: ${SITE_CONFIG.profile.statusText}</div>
 </div>
         `);
         break;
@@ -210,12 +210,10 @@ class TerminalController {
 
       case "education":
         let eduHtml = '<div class="term-box">';
-        eduHtml += '<div class="term-highlight font-bold">Academic Degrees & Honors:</div>';
+        eduHtml += '<div class="term-highlight font-bold">Academic Degrees:</div>';
         SITE_CONFIG.education.forEach(e => {
           eduHtml += `<div class="mt-1"><span class="term-accent">${e.degree}</span> - ${e.institution} <span class="term-badge">${e.grade}</span></div>`;
-        });
-        SITE_CONFIG.honors.forEach(h => {
-          eduHtml += `<div class="term-muted text-sm mt-1">${h.icon} <strong>${h.title}</strong> (${h.issuer})</div>`;
+          eduHtml += `<div class="term-muted text-sm">${e.details}</div>`;
         });
         eduHtml += '</div>';
         this.appendLine(eduHtml);
@@ -236,10 +234,20 @@ class TerminalController {
         this.appendLine(`
 <div class="term-box">
   <div class="term-highlight">Contact & Social Channels:</div>
-  <div>📧 Email: <a href="mailto:${SITE_CONFIG.profile.email}" class="term-link">${SITE_CONFIG.profile.email}</a></div>
-  <div>🐙 GitHub: <a href="${SITE_CONFIG.profile.github}" target="_blank" class="term-link">${SITE_CONFIG.profile.github}</a></div>
-  <div>💼 LinkedIn: <a href="${SITE_CONFIG.profile.linkedin}" target="_blank" class="term-link">${SITE_CONFIG.profile.linkedin}</a></div>
-  <div>✍ Substack: <a href="${SITE_CONFIG.profile.substack}" target="_blank" class="term-link">${SITE_CONFIG.profile.substack}</a></div>
+  <div>Email: <a href="mailto:${SITE_CONFIG.profile.email}" class="term-link">${SITE_CONFIG.profile.email}</a></div>
+  <div>GitHub: <a href="${SITE_CONFIG.profile.github}" target="_blank" class="term-link">${SITE_CONFIG.profile.github}</a></div>
+  <div>LinkedIn: <a href="${SITE_CONFIG.profile.linkedin}" target="_blank" class="term-link">${SITE_CONFIG.profile.linkedin}</a></div>
+  <div>Substack: <a href="${SITE_CONFIG.profile.substack}" target="_blank" class="term-link">${SITE_CONFIG.profile.substack}</a></div>
+</div>
+        `);
+        break;
+
+      case "resume":
+        this.appendLine(`
+<div class="term-box">
+  <div class="term-highlight">Resume Request:</div>
+  <div>To request my latest comprehensive resume, send an email to:</div>
+  <div class="mt-1"><a href="mailto:${SITE_CONFIG.profile.email}?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" class="term-link">${SITE_CONFIG.profile.email}</a></div>
 </div>
         `);
         break;
@@ -286,10 +294,11 @@ class TerminalController {
   <div class="term-help-row"><span class="term-cmd font-bold">skills</span> <span class="term-desc">Show categorized AI/ML and engineering skill matrix</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">projects</span> <span class="term-desc">List GitHub repositories with live links</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">research</span> <span class="term-desc">View IEEE publication & concurrency deep learning paper</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">education</span> <span class="term-desc">Inspect M.Tech/B.Tech degrees, Gold Medal & honors</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">education</span> <span class="term-desc">Inspect M.Tech/B.Tech degrees and academic background</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">repo &lt;name&gt;</span> <span class="term-desc">Directly open a repository in GitHub (e.g. repo rag)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">blog</span> <span class="term-desc">List technical articles and research breakdowns</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1 or read rag)</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1)</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">resume</span> <span class="term-desc">Get instructions to request latest resume</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">stats</span> <span class="term-desc">Inspect engineering metrics & system benchmarks</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">contact</span> <span class="term-desc">Get direct email, Substack, and social channels</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">theme &lt;name&gt;</span> <span class="term-desc">Change UI palette (dark, matrix, dracula, light)</span></div>

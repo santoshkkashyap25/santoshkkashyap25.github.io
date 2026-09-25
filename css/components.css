@@ -689,13 +689,7 @@
   margin-bottom: 0.75rem;
 }
 
-.edu-honors-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-}
-
-.edu-col, .honors-col {
+.edu-col {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -711,19 +705,17 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.edu-items-list {
-  display: flex;
-  flex-direction: column;
+.edu-grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 
-.edu-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  padding-bottom: 1rem;
-}
-.edu-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.edu-grid-two .edu-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
 }
 
 .edu-header {

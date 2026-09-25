@@ -22,7 +22,6 @@ class PortfolioApp {
     this.renderResearchAndHonors();
     this.renderSkills();
     this.renderBlog();
-    this.renderJourney();
     this.initNavigation();
     this.initArticleModal();
     this.initTerminal();
@@ -70,8 +69,12 @@ class PortfolioApp {
               <span class="exp-badge">${exp.type}</span>
             </div>
             <div class="exp-meta-row font-mono">
-              <span class="exp-period">📅 ${exp.period}</span>
-              <span class="exp-location">📍 ${exp.location}</span>
+              <span class="exp-period">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>${exp.period}
+              </span>
+              <span class="exp-location">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${exp.location}
+              </span>
             </div>
           </div>
         </div>
@@ -110,42 +113,24 @@ class PortfolioApp {
     }
 
     const eduHonorsEl = document.getElementById("education-honors-wrap");
-    if (eduHonorsEl && SITE_CONFIG.education && SITE_CONFIG.honors) {
+    if (eduHonorsEl && SITE_CONFIG.education) {
       eduHonorsEl.innerHTML = `
-        <div class="edu-honors-grid">
-          <!-- Education Column -->
-          <div class="edu-col">
-            <h3 class="edu-sec-title font-mono">🎓 Academic Degrees</h3>
-            <div class="edu-items-list">
-              ${SITE_CONFIG.education.map(edu => `
-                <div class="edu-item">
-                  <div class="edu-header">
-                    <span class="edu-degree font-mono font-bold">${edu.degree}</span>
-                    <span class="edu-period font-mono">${edu.period}</span>
-                  </div>
-                  <div class="edu-institution">${edu.institution}</div>
-                  <div class="edu-grade font-mono">${edu.grade}</div>
-                  <p class="edu-details">${edu.details}</p>
+        <div class="edu-col">
+          <h3 class="edu-sec-title font-mono">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>Academic Degrees & Education
+          </h3>
+          <div class="edu-grid-two">
+            ${SITE_CONFIG.education.map(edu => `
+              <div class="edu-item">
+                <div class="edu-header">
+                  <span class="edu-degree font-mono font-bold">${edu.degree}</span>
+                  <span class="edu-period font-mono">${edu.period}</span>
                 </div>
-              `).join("")}
-            </div>
-          </div>
-
-          <!-- Honors Column -->
-          <div class="honors-col">
-            <h3 class="edu-sec-title font-mono">🏆 Honors & Algorithmic Excellence</h3>
-            <div class="honors-items-list">
-              ${SITE_CONFIG.honors.map(h => `
-                <div class="honor-item">
-                  <span class="honor-icon">${h.icon}</span>
-                  <div class="honor-info">
-                    <div class="honor-title font-mono font-bold">${h.title}</div>
-                    <div class="honor-issuer font-mono">${h.issuer}</div>
-                    <p class="honor-desc">${h.desc}</p>
-                  </div>
-                </div>
-              `).join("")}
-            </div>
+                <div class="edu-institution">${edu.institution}</div>
+                <div class="edu-grade font-mono">${edu.grade}</div>
+                <p class="edu-details">${edu.details}</p>
+              </div>
+            `).join("")}
           </div>
         </div>
       `;
@@ -191,17 +176,6 @@ class PortfolioApp {
 
     container.innerHTML = filtered.map(p => `
       <div class="project-card ${p.isFeatured ? "featured-project" : ""}">
-        <div class="proj-header">
-          <div class="proj-meta">
-            <span class="proj-badge font-mono">${p.badge}</span>
-            <span class="proj-category font-mono">${p.categoryName}</span>
-          </div>
-          <div class="proj-stars font-mono">
-            <span class="star-icon">★</span>
-            <span>${p.stars}</span>
-          </div>
-        </div>
-
         <h3 class="proj-title font-mono">
           <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer">${p.title}</a>
         </h3>
@@ -230,7 +204,7 @@ class PortfolioApp {
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
-              <span>Live Demo</span>
+              <span>${p.demoLabel || "Live Demo"}</span>
             </a>
           ` : `
             <button class="btn btn-disabled font-mono" disabled>
@@ -305,32 +279,6 @@ class PortfolioApp {
   searchBlog(query) {
     this.blogSearchQuery = query;
     this.renderBlog();
-  }
-
-  renderJourney() {
-    const container = document.getElementById("journey-timeline");
-    if (!container) return;
-
-    container.innerHTML = SITE_CONFIG.journey.map(item => `
-      <div class="commit-item">
-        <div class="commit-node">
-          <div class="commit-dot type-${item.type}"></div>
-          <div class="commit-line"></div>
-        </div>
-        <div class="commit-content">
-          <div class="commit-header">
-            <span class="commit-hash font-mono">${item.commitHash}</span>
-            <span class="commit-tag font-mono">${item.tag}</span>
-            <span class="commit-date font-mono">${item.date}</span>
-          </div>
-          <h4 class="commit-title">${item.title}</h4>
-          <p class="commit-desc">${item.description}</p>
-          <div class="commit-stack font-mono">
-            ${item.stack.map(s => `<span class="stack-item">${s}</span>`).join("")}
-          </div>
-        </div>
-      </div>
-    `).join("");
   }
 
   initNavigation() {
@@ -507,7 +455,7 @@ class PortfolioApp {
 
   copyEmail() {
     navigator.clipboard.writeText(SITE_CONFIG.profile.email).then(() => {
-      this.showToast(`✓ Copied ${SITE_CONFIG.profile.email} to clipboard!`);
+      this.showToast(`Copied ${SITE_CONFIG.profile.email} to clipboard!`);
     }).catch(() => {
       this.showToast(`Email: ${SITE_CONFIG.profile.email}`);
     });

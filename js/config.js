@@ -59,16 +59,14 @@ const SITE_CONFIG = {
       ]
     },
     {
-      category: "Backend, Security & Cloud",
+      category: "Cloud & AI Infrastructure",
       icon: "code",
       skills: [
-        { name: "FastAPI Async Microservices", level: "Expert", tag: "High Throughput" },
-        { name: "Redis Multi-tier Caching (<1ms)", level: "Expert", tag: "Performance" },
-        { name: "PostgreSQL & SQLite", level: "Advanced", tag: "Databases" },
-        { name: "AES-256-GCM & HMAC Indexing", level: "Advanced", tag: "Security" },
-        { name: "Docker & Docker Compose", level: "Expert", tag: "Containers" },
-        { name: "AWS Cloud Infrastructure", level: "Advanced", tag: "Deployment" },
-        { name: "Django & REST Framework", level: "Advanced", tag: "Full-Stack" }
+        { name: "FastAPI Async Microservices", level: "Expert", tag: "Inference APIs" },
+        { name: "Redis In-Memory Caching", level: "Expert", tag: "Low Latency" },
+        { name: "Docker & Containerization", level: "Expert", tag: "Containers" },
+        { name: "AWS Cloud Infrastructure", level: "Advanced", tag: "Cloud Deployment" },
+        { name: "PostgreSQL & SQLite", level: "Advanced", tag: "Databases" }
       ]
     }
   ],
@@ -123,10 +121,10 @@ const SITE_CONFIG = {
     title: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN",
     publisher: "IEEE",
     badge: "IEEE PUBLICATION",
-    citation: "IEEE Conference Proceedings",
-    summary: "A deep learning framework for automated data race detection in OpenMP parallel computing programs using Abstract Syntax Trees (ASTs), text vectorization, neural embeddings, and a Deep Convolutional Neural Network (DCNN).",
+    citation: "IEEE Conference Proceedings (Co-Authored)",
+    summary: "A collaborative deep learning research framework for automated data race detection in OpenMP parallel computing programs using Abstract Syntax Trees (ASTs), text vectorization, neural embeddings, and a Deep Convolutional Neural Network (DCNN).",
     highlights: [
-      "Achieved 89.60% accuracy and 89.60% F1-score on synchronization-based parallel datasets, significantly outperforming baseline CNN approaches.",
+      "Co-authored research achieving 89.60% accuracy and 89.60% F1-score on synchronization-based parallel datasets, outperforming baseline CNN approaches.",
       "Engineered random-search hyperparameter optimization with early stopping, model checkpointing, and ReduceLROnPlateau dynamic scheduling."
     ],
     tags: ["Deep Learning", "AST Analysis", "OpenMP Concurrency", "DCNN", "Hyperparameter Optimization", "IEEE"]
@@ -138,35 +136,14 @@ const SITE_CONFIG = {
       degree: "M.Tech in Computer Science and Engineering",
       period: "Aug 2022 – Jun 2024",
       grade: "CGPA: 8.47 / 10",
-      details: "Core focus on advanced algorithms, deep learning architectures, and distributed systems."
+      details: "Focused on machine learning algorithms, deep learning architectures, and generative AI systems."
     },
     {
       institution: "Himachal Pradesh Technical University, Hamirpur",
       degree: "B.Tech in Computer Science and Engineering",
       period: "Aug 2017 – Jun 2021",
-      grade: "CGPA: 8.99 / 10 • University Gold Medalist 🥇",
-      details: "Graduated Rank 1 across the university. Strong foundations in computer systems, mathematics, and data structures."
-    }
-  ],
-
-  honors: [
-    {
-      icon: "🥇",
-      title: "University Gold Medalist (Rank 1)",
-      issuer: "Himachal Pradesh Technical University",
-      desc: "Awarded University Gold Medal for securing 1st Rank in B.Tech Computer Science & Engineering (CGPA 8.99/10, 2021)."
-    },
-    {
-      icon: "⚡",
-      title: "GATE CS Qualified",
-      issuer: "Ministry of Education, Govt. of India",
-      desc: "Qualified the prestigious Graduate Aptitude Test in Engineering (GATE 2022) in Computer Science & Information Technology."
-    },
-    {
-      icon: "💡",
-      title: "900+ Algorithmic Problems Solved",
-      issuer: "LeetCode & GeeksforGeeks",
-      desc: "Solved over 900 algorithmic and system design challenges spanning dynamic programming, graphs, trees, and concurrency."
+      grade: "CGPA: 8.99 / 10",
+      details: "Strong foundations in computer systems, algorithms, mathematics, and software engineering."
     }
   ],
 
@@ -209,20 +186,20 @@ const SITE_CONFIG = {
     },
     {
       id: "sentiment-analysis",
-      title: "Production Sentiment Engine (INT8 Quantized)",
+      title: "Sentiment Analysis Engine (INT8 Quantized)",
       category: "mlops",
       categoryName: "MLOps & Inference",
       badge: "INT8 ONNX",
       stars: 1,
-      shortDescription: "Production-ready customer sentiment classification engine powered by INT8 quantized RoBERTa with calibrated negative recall (>90%) and real-time Kolmogorov-Smirnov drift monitoring.",
+      shortDescription: "Customer sentiment classification system powered by INT8 quantized RoBERTa with calibrated negative recall (>90%) and real-time Kolmogorov-Smirnov drift monitoring.",
       highlights: [
         "4x inference latency reduction via INT8 post-training quantization on ONNX Runtime",
-        "Strictly calibrated negative recall (>90%) to catch high-risk churn churn signals",
+        "Strictly calibrated negative recall (>90%) to catch high-risk churn signals",
         "Continuous statistical drift monitoring using Kolmogorov-Smirnov hypothesis tests"
       ],
       technologies: ["RoBERTa", "INT8 Quantization", "ONNX Runtime", "FastAPI", "Drift Detection", "Python"],
       githubUrl: "https://github.com/santoshkkashyap25/sentiment-analysis",
-      demoUrl: null,
+      demoUrl: "https://sentipulse-q0mx.onrender.com/",
       isFeatured: true
     },
     {
@@ -232,7 +209,7 @@ const SITE_CONFIG = {
       categoryName: "Graph AI & Deep Learning",
       badge: "RESEARCH",
       stars: 1,
-      shortDescription: "Graph Neural Network system detecting misinformation cascade propagation on social networks using GCN, GAT, GIN, and GraphSAGE with BERT textual embeddings on UPFD benchmark.",
+      shortDescription: "Graph Neural Network system detecting misinformation cascade propagation on social networks using GCN, GAT, GIN, and GraphSAGE with BERT textual embeddings, inspired by research on the UPFD benchmark.",
       highlights: [
         "Models propagation graph topology alongside linguistic news signals",
         "Automated Bayesian hyperparameter tuning with Optuna",
@@ -241,6 +218,7 @@ const SITE_CONFIG = {
       technologies: ["PyTorch Geometric", "GNN / GAT", "BERT", "Optuna", "Python", "UPFD Benchmark"],
       githubUrl: "https://github.com/santoshkkashyap25/fake-news-detection-gnn",
       demoUrl: "https://arxiv.org/abs/2104.12259",
+      demoLabel: "Research Paper",
       isFeatured: true
     },
     {
@@ -263,12 +241,12 @@ const SITE_CONFIG = {
     },
     {
       id: "iris-flower-classifier",
-      title: "Iris Flower Classifier & Production API",
+      title: "Iris Flower Classifier & REST API",
       category: "mlops",
       categoryName: "Machine Learning API",
       badge: "REST API",
       stars: 1,
-      shortDescription: "Interactive Iris flower species classifier and REST API built with Flask, Scikit-Learn pipelines, confidence scoring, automated unit tests, and automated cloud deployment.",
+      shortDescription: "Interactive Iris flower species classifier and REST API built with Flask, Scikit-Learn pipelines, confidence scoring, automated unit tests, and cloud deployment.",
       highlights: [
         "Scikit-Learn preprocessing and modeling pipeline serialization",
         "Confidence score thresholding for out-of-distribution inputs",
@@ -283,16 +261,6 @@ const SITE_CONFIG = {
 
   blogPosts: [
     {
-      slug: "rag-pipeline-optimization",
-      title: "Architecting Production RAG: BM25 Re-Ranking, Page-Level Citations, and Sub-Second Streaming",
-      summary: "How to eliminate hallucinations and achieve sub-second live web verification using hybrid dense-sparse retrieval, BM25Okapi scoring, and LangGraph streaming.",
-      date: "2026-09-18",
-      readTime: "6 min read",
-      category: "RAG & GenAI",
-      tags: ["RAG", "LangGraph", "Groq", "FastAPI", "BM25"],
-      markdownFile: "posts/rag-pipeline-optimization.md"
-    },
-    {
       slug: "quantized-roberta-inference",
       title: "Optimizing Transformer Inference: INT8 Quantization with ONNX and Statistical Drift Monitoring",
       summary: "Achieving a 4x throughput boost and <15ms p95 latency on RoBERTa classifiers while maintaining >90% negative recall and monitoring Kolmogorov-Smirnov feature drift.",
@@ -301,75 +269,18 @@ const SITE_CONFIG = {
       category: "MLOps & Systems",
       tags: ["ONNX", "Quantization", "RoBERTa", "MLOps", "FastAPI"],
       markdownFile: "posts/quantized-roberta-inference.md"
-    },
-    {
-      slug: "graph-neural-networks-misinformation",
-      title: "Graph Neural Networks for Misinformation: Benchmarking GCN, GAT, and GraphSAGE on Cascade Graphs",
-      summary: "Why structural propagation graphs outperform pure text NLP for social misinformation detection. A deep dive into PyTorch Geometric and Optuna Bayesian optimization.",
-      date: "2026-07-10",
-      readTime: "7 min read",
-      category: "Deep Learning",
-      tags: ["PyTorch Geometric", "GNN", "BERT", "Optuna", "Graph AI"],
-      markdownFile: "posts/graph-neural-networks-misinformation.md"
-    }
-  ],
-
-  journey: [
-    {
-      commitHash: "9a4f21d",
-      tag: "v2.5.0-prod",
-      type: "feat",
-      date: "September 2026",
-      title: "Engineered Live RAG Fact-Checker & LangGraph Multi-Agent Workflows",
-      description: "Architected real-time claim verification system against live DuckDuckGo and Wikipedia engines. Implemented BM25Okapi re-ranking, token streaming, and deployed on cloud infrastructure.",
-      stack: ["LangGraph", "Groq", "BM25Okapi", "FastAPI", "Docker"]
-    },
-    {
-      commitHash: "7b138ee",
-      tag: "v2.1.0",
-      type: "perf",
-      date: "August 2026",
-      title: "Production RoBERTa INT8 Quantization & MLOps Drift Pipeline",
-      description: "Serialized transformer classifiers into ONNX INT8 representation, slashing inference latency by 4x. Integrated automated Kolmogorov-Smirnov drift detection to catch dataset distribution shifts.",
-      stack: ["ONNX Runtime", "RoBERTa", "Quantization", "Drift Monitoring"]
-    },
-    {
-      commitHash: "5e024aa",
-      tag: "v1.8.0",
-      type: "research",
-      date: "January 2024",
-      title: "Developed Fake News Cascade Classifier using Graph Neural Networks",
-      description: "Designed GCN, GAT, and GraphSAGE topological propagation graph models for social network rumor detection on the UPFD benchmark with PyTorch Geometric and Optuna.",
-      stack: ["PyTorch Geometric", "GAT", "BERT", "Optuna"]
-    },
-    {
-      commitHash: "3c9110b",
-      tag: "v1.2.0",
-      type: "feat",
-      date: "April 2021",
-      title: "Class-Imbalance XGBoost & Cost-Sensitive Insurance Default Profiler",
-      description: "Solved 94:6 extreme class imbalance with calibrated XGBoost probabilities and cost matrix optimization to maximize retention outreach ROI.",
-      stack: ["XGBoost", "Scikit-Learn", "Probability Calibration", "Streamlit"]
-    },
-    {
-      commitHash: "1a082f4",
-      tag: "init",
-      type: "init",
-      date: "March 2021",
-      title: "Initial Git Commit: Embarked on AI / ML Engineering Odyssey",
-      description: "Started core machine learning foundation, mathematical modeling, and production software engineering.",
-      stack: ["Python", "Algorithms", "Mathematics", "Linux"]
     }
   ],
 
   terminalCommands: {
-    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
-    about: "Santosh Kumar Kashyap - AI/ML Engineer specializing in GenAI, RAG architectures, INT8 Quantized Transformers, and Graph Neural Networks.",
+    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `resume`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
+    about: "Santosh Kumar Kashyap - AI/ML Engineer focused on machine learning systems, deep learning, and generative AI.",
     experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
     research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]",
-    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (8.99 CGPA, Gold Medalist 🥇)",
+    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (8.99 CGPA)",
+    resume: "To request my latest comprehensive resume, send an email to santoshkkashyap25@gmail.com with subject 'Resume Request'.",
     stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
-    skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Backend & Cloud.",
+    skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Cloud & AI Infrastructure.",
     contact: "Email: santoshkkashyap25@gmail.com | GitHub: https://github.com/santoshkkashyap25 | Substack: https://substack.com/@skknotes",
     clear: "Clear terminal buffer"
   }
