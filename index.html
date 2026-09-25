@@ -129,6 +129,11 @@
           </select>
         </div>
 
+        <a href="https://portfolio-lemon-eight-ubrmijgffb.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" style="padding: 0.35rem 0.65rem; font-size: 0.78rem;" title="Interactive Portfolio Web App">
+          <span>Portfolio App</span>
+          <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+        </a>
+
         <a href="https://github.com/santoshkkashyap25" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.65rem;" title="View GitHub Profile">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -297,14 +302,6 @@
           </p>
         </div>
 
-        <!-- Filter Navigation -->
-        <div class="projects-filter-bar font-mono">
-          <button class="proj-filter-btn active" onclick="window.app.filterProjects('all', this)">All Repositories</button>
-          <button class="proj-filter-btn" onclick="window.app.filterProjects('rag', this)">RAG & GenAI</button>
-          <button class="proj-filter-btn" onclick="window.app.filterProjects('mlops', this)">MLOps & Optimization</button>
-          <button class="proj-filter-btn" onclick="window.app.filterProjects('deeplearning', this)">Deep Learning & GNNs</button>
-        </div>
-
         <!-- Projects Grid -->
         <div class="projects-grid" id="projects-grid">
           <!-- Dynamically populated from SITE_CONFIG.projects -->
@@ -346,7 +343,7 @@
           <span class="section-label font-mono">TECH_STACK</span>
           <h2 class="section-title">Skills & Engineering Matrix</h2>
           <p class="section-subtitle">
-            Curated toolkit spanning Generative AI frameworks, Deep Learning architectures, MLOps tooling, and robust backend engineering.
+            Core technical proficiencies and hands-on stack across generative AI, deep learning models, MLOps pipelines, and backend engineering.
           </p>
         </div>
 
@@ -369,32 +366,30 @@
           </p>
         </div>
 
-        <!-- Controls: Search & Tags -->
-        <div class="blog-controls-bar">
-          <div class="blog-search-wrap">
-            <span class="blog-search-icon font-mono">›</span>
-            <input type="text" class="blog-search-input" placeholder="Search articles or tags..." oninput="window.app.searchBlog(this.value)" aria-label="Search articles">
+        <!-- External Exploration Links Bar -->
+        <div class="blog-more-bar font-mono">
+          <span class="blog-more-label">Showing 3 featured articles. For more deep-dives &amp; technical notes:</span>
+          <div class="blog-more-links">
+            <a href="https://substack.com/@skknotes" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;" title="Read & Subscribe on Substack">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+              <span>Substack (@skknotes)</span>
+              <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+            </a>
+            <a href="https://portfolio-lemon-eight-ubrmijgffb.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;" title="Interactive Portfolio Web App">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Interactive Portfolio Website</span>
+              <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+            </a>
           </div>
-
-          <div class="blog-tags-filter font-mono">
-            <button class="blog-tag-filter active" onclick="window.app.filterBlogByTag('all', this)">All Tags</button>
-            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('RAG', this)">RAG</button>
-            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('ONNX', this)">ONNX</button>
-            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('Quantization', this)">Quantization</button>
-            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('GNN', this)">GNN</button>
-            <button class="blog-tag-filter" onclick="window.app.filterBlogByTag('FastAPI', this)">FastAPI</button>
-          </div>
-
-          <a href="https://substack.com/@skknotes" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;" title="Read & Subscribe on Substack">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-              <path d="M2 2l7.586 7.586"></path>
-              <circle cx="11" cy="11" r="2"></circle>
-            </svg>
-            <span>Substack (@skknotes)</span>
-            <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
-          </a>
         </div>
 
         <!-- Blog Cards Grid -->
@@ -413,7 +408,7 @@
           <span class="section-label font-mono">INIT_CONNECT</span>
           <h2 class="section-title">Initiate Handshake</h2>
           <p class="section-subtitle">
-            Whether you are looking to collaborate on machine learning initiatives, discuss intelligent systems, or explore engineering opportunities, feel free to reach out.
+            Open to new opportunities, collaborations on machine learning initiatives, and exploring impactful challenges in intelligent systems. Feel free to reach out.
           </p>
         </div>
 
@@ -454,6 +449,21 @@
                   <div class="contact-link-content">
                     <div class="contact-link-label">Resume / CV</div>
                     <div class="contact-link-value">Request via Email</div>
+                  </div>
+                  <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+                </a>
+
+                <a href="https://portfolio-lemon-eight-ubrmijgffb.vercel.app/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                  <span class="contact-link-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </span>
+                  <div class="contact-link-content">
+                    <div class="contact-link-label">Interactive Portfolio</div>
+                    <div class="contact-link-value">portfolio-lemon-eight-ubrmijgffb.vercel.app</div>
                   </div>
                   <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
                 </a>
@@ -567,6 +577,7 @@
 
       <div class="footer-right">
         <a href="#home" class="footer-link">Top ↑</a>
+        <a href="https://portfolio-lemon-eight-ubrmijgffb.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Portfolio App</a>
         <a href="https://github.com/santoshkkashyap25" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
         <a href="https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
         <a href="https://substack.com/@skknotes" target="_blank" rel="noopener noreferrer" class="footer-link">Substack</a>

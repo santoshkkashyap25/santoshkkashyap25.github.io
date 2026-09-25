@@ -805,6 +805,31 @@
 /* --------------------------------------------------------------------------
    BLOG & RESEARCH ARTICLES SECTION
    -------------------------------------------------------------------------- */
+.blog-more-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.blog-more-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.blog-more-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .blog-controls-bar {
   display: flex;
   align-items: center;

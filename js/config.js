@@ -15,6 +15,7 @@ const SITE_CONFIG = {
     github: "https://github.com/santoshkkashyap25",
     linkedin: "https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/",
     substack: "https://substack.com/@skknotes",
+    portfolioApp: "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
     website: "https://santoshkkashyap25.github.io"
   },
 
@@ -122,6 +123,7 @@ const SITE_CONFIG = {
     publisher: "IEEE",
     badge: "IEEE PUBLICATION",
     citation: "IEEE Conference Proceedings (Co-Authored)",
+    url: "https://ieeexplore.ieee.org/document/11398187/",
     summary: "A collaborative deep learning research framework for automated data race detection in OpenMP parallel computing programs using Abstract Syntax Trees (ASTs), text vectorization, neural embeddings, and a Deep Convolutional Neural Network (DCNN).",
     highlights: [
       "Co-authored research achieving 89.60% accuracy and 89.60% F1-score on synchronization-based parallel datasets, outperforming baseline CNN approaches.",
@@ -142,7 +144,7 @@ const SITE_CONFIG = {
       institution: "Himachal Pradesh Technical University, Hamirpur",
       degree: "B.Tech in Computer Science and Engineering",
       period: "Aug 2017 – Jun 2021",
-      grade: "CGPA: 8.99 / 10",
+      grade: "Gold Medalist (University First Rank)",
       details: "Strong foundations in computer systems, algorithms, mathematics, and software engineering."
     }
   ],
@@ -217,8 +219,6 @@ const SITE_CONFIG = {
       ],
       technologies: ["PyTorch Geometric", "GNN / GAT", "BERT", "Optuna", "Python", "UPFD Benchmark"],
       githubUrl: "https://github.com/santoshkkashyap25/fake-news-detection-gnn",
-      demoUrl: "https://arxiv.org/abs/2104.12259",
-      demoLabel: "Research Paper",
       isFeatured: true
     },
     {
@@ -261,6 +261,16 @@ const SITE_CONFIG = {
 
   blogPosts: [
     {
+      slug: "rag-pipeline-optimization",
+      title: "Architecting Production RAG: BM25 Re-Ranking, Page-Level Citations, and Sub-Second Streaming",
+      summary: "How to eliminate hallucinations and achieve sub-second live web verification using hybrid dense-sparse retrieval, BM25Okapi scoring, and LangGraph streaming.",
+      date: "2026-09-18",
+      readTime: "6 min read",
+      category: "RAG & GenAI",
+      tags: ["RAG", "LangGraph", "Groq", "FastAPI", "BM25"],
+      markdownFile: "posts/rag-pipeline-optimization.md"
+    },
+    {
       slug: "quantized-roberta-inference",
       title: "Optimizing Transformer Inference: INT8 Quantization with ONNX and Statistical Drift Monitoring",
       summary: "Achieving a 4x throughput boost and <15ms p95 latency on RoBERTa classifiers while maintaining >90% negative recall and monitoring Kolmogorov-Smirnov feature drift.",
@@ -269,19 +279,30 @@ const SITE_CONFIG = {
       category: "MLOps & Systems",
       tags: ["ONNX", "Quantization", "RoBERTa", "MLOps", "FastAPI"],
       markdownFile: "posts/quantized-roberta-inference.md"
+    },
+    {
+      slug: "graph-neural-networks-misinformation",
+      title: "Graph Neural Networks for Misinformation: Benchmarking GCN, GAT, and GraphSAGE on Cascade Graphs",
+      summary: "Why structural propagation graphs outperform pure text NLP for social misinformation detection. A deep dive into PyTorch Geometric and Optuna Bayesian optimization.",
+      date: "2026-07-10",
+      readTime: "7 min read",
+      category: "Deep Learning",
+      tags: ["PyTorch Geometric", "GNN", "BERT", "Optuna", "Graph AI"],
+      markdownFile: "posts/graph-neural-networks-misinformation.md"
     }
   ],
 
   terminalCommands: {
-    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `resume`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
+    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `portfolio`, `resume`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
     about: "Santosh Kumar Kashyap - AI/ML Engineer focused on machine learning systems, deep learning, and generative AI.",
     experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
-    research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]",
-    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (8.99 CGPA)",
+    research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]: https://ieeexplore.ieee.org/document/11398187/",
+    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (Gold Medalist)",
+    portfolio: "Interactive Next.js Portfolio Website: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
     resume: "To request my latest comprehensive resume, send an email to santoshkkashyap25@gmail.com with subject 'Resume Request'.",
     stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
     skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Cloud & AI Infrastructure.",
-    contact: "Email: santoshkkashyap25@gmail.com | GitHub: https://github.com/santoshkkashyap25 | Substack: https://substack.com/@skknotes",
+    contact: "Email: santoshkkashyap25@gmail.com | Portfolio: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/ | GitHub: https://github.com/santoshkkashyap25 | Substack: https://substack.com/@skknotes",
     clear: "Clear terminal buffer"
   }
 };

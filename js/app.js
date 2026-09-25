@@ -100,7 +100,9 @@ class PortfolioApp {
             <span class="proj-badge font-mono">${res.badge}</span>
             <span class="proj-category font-mono">${res.citation}</span>
           </div>
-          <h3 class="research-title font-mono">${res.title}</h3>
+          <h3 class="research-title font-mono">
+            <a href="${res.url || '#'}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${res.title}</a>
+          </h3>
           <p class="proj-desc">${res.summary}</p>
           <ul class="proj-highlights">
             ${res.highlights.map(h => `<li><span class="bullet">›</span> ${h}</li>`).join("")}
@@ -108,6 +110,18 @@ class PortfolioApp {
           <div class="proj-tech-stack">
             ${res.tags.map(t => `<span class="tech-chip font-mono">${t}</span>`).join("")}
           </div>
+          ${res.url ? `
+            <div class="proj-actions font-mono" style="margin-top: 1.25rem;">
+              <a href="${res.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>View on IEEE Xplore</span>
+                <span class="ext-icon" style="color: var(--accent-primary);">↗</span>
+              </a>
+            </div>
+          ` : ""}
         </div>
       `;
     }
@@ -206,11 +220,7 @@ class PortfolioApp {
               </svg>
               <span>${p.demoLabel || "Live Demo"}</span>
             </a>
-          ` : `
-            <button class="btn btn-disabled font-mono" disabled>
-              <span>CLI / Library</span>
-            </button>
-          `}
+          ` : ""}
         </div>
       </div>
     `).join("");
@@ -228,7 +238,7 @@ class PortfolioApp {
     const container = document.getElementById("blog-grid");
     if (!container) return;
 
-    let posts = SITE_CONFIG.blogPosts;
+    let posts = SITE_CONFIG.blogPosts ? SITE_CONFIG.blogPosts.slice(0, 3) : [];
 
     if (this.blogSearchQuery) {
       const q = this.blogSearchQuery.toLowerCase();
@@ -239,21 +249,17 @@ class PortfolioApp {
       );
     }
 
-    if (this.activeBlogTag !== "all") {
+    if (this.activeBlogTag && this.activeBlogTag !== "all") {
       posts = posts.filter(p => p.tags.includes(this.activeBlogTag));
     }
 
     if (posts.length === 0) {
-      container.innerHTML = `<div class="empty-state font-mono">No articles found matching your search.</div>`;
+      container.innerHTML = `<div class="empty-state font-mono">No articles found.</div>`;
       return;
     }
 
     container.innerHTML = posts.map(post => `
       <article class="blog-card" onclick="window.app.openArticle('${post.slug}')">
-        <div class="blog-card-header">
-          <span class="blog-category font-mono">${post.category}</span>
-          <span class="blog-read-time font-mono">${post.readTime}</span>
-        </div>
         <h3 class="blog-card-title">${post.title}</h3>
         <p class="blog-card-summary">${post.summary}</p>
         <div class="blog-card-footer">

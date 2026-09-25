@@ -11,7 +11,7 @@ class TerminalController {
     this.historyIndex = -1;
     this.commandList = [
       "help", "about", "experience", "skills", "projects", "research",
-      "education", "blog", "read", "resume", "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
+      "education", "blog", "portfolio", "read", "resume", "stats", "contact", "theme", "repo", "clear", "gui", "sudo"
     ];
 
     if (this.input) {
@@ -203,6 +203,7 @@ class TerminalController {
   <div class="term-highlight font-bold">${res.title}</div>
   <div class="term-accent">${res.badge} • ${res.citation}</div>
   <p class="term-text mt-1">${res.summary}</p>
+  ${res.url ? `<div class="mt-1"><a href="${res.url}" target="_blank" class="term-link">View Paper on IEEE Xplore ↗</a></div>` : ''}
   <div class="term-tech-tags mt-1">${res.tags.join(" • ")}</div>
 </div>
         `);
@@ -230,11 +231,22 @@ class TerminalController {
         `);
         break;
 
+      case "portfolio":
+        this.appendLine(`
+<div class="term-box">
+  <div class="term-highlight">Interactive Next.js Portfolio:</div>
+  <div>Explore interactive components, project case studies, and live systems at:</div>
+  <div class="mt-1"><a href="${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'} ↗</a></div>
+</div>
+        `);
+        break;
+
       case "contact":
         this.appendLine(`
 <div class="term-box">
   <div class="term-highlight">Contact & Social Channels:</div>
   <div>Email: <a href="mailto:${SITE_CONFIG.profile.email}" class="term-link">${SITE_CONFIG.profile.email}</a></div>
+  <div>Portfolio: <a href="${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}</a></div>
   <div>GitHub: <a href="${SITE_CONFIG.profile.github}" target="_blank" class="term-link">${SITE_CONFIG.profile.github}</a></div>
   <div>LinkedIn: <a href="${SITE_CONFIG.profile.linkedin}" target="_blank" class="term-link">${SITE_CONFIG.profile.linkedin}</a></div>
   <div>Substack: <a href="${SITE_CONFIG.profile.substack}" target="_blank" class="term-link">${SITE_CONFIG.profile.substack}</a></div>
@@ -297,6 +309,7 @@ class TerminalController {
   <div class="term-help-row"><span class="term-cmd font-bold">education</span> <span class="term-desc">Inspect M.Tech/B.Tech degrees and academic background</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">repo &lt;name&gt;</span> <span class="term-desc">Directly open a repository in GitHub (e.g. repo rag)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">blog</span> <span class="term-desc">List technical articles and research breakdowns</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">portfolio</span> <span class="term-desc">Open link to interactive Next.js portfolio website</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">resume</span> <span class="term-desc">Get instructions to request latest resume</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">stats</span> <span class="term-desc">Inspect engineering metrics & system benchmarks</span></div>
