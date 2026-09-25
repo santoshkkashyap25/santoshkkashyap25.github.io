@@ -14,8 +14,8 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 460px;
-  max-width: 520px;
+  height: 485px;
+  max-width: 580px;
   width: 100%;
   margin-left: auto;
   position: relative;
@@ -1729,7 +1729,7 @@
   }
   .terminal-window {
     margin: 0 auto;
-    max-width: 520px;
+    max-width: 580px;
   }
   .skills-grid {
     grid-template-columns: 1fr;
