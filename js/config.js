@@ -15,6 +15,7 @@ const SITE_CONFIG = {
     email: "santoshkkashyap25@gmail.com",
     github: "https://github.com/santoshkkashyap25",
     linkedin: "https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/",
+    substack: "https://substack.com/@skknotes",
     website: "https://santoshkkashyap25.github.io"
   },
 

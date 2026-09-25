@@ -100,7 +100,8 @@ class CommandPalette {
       // Quick Actions
       { type: "Action", title: "Copy Email (santoshkkashyap25@gmail.com)", desc: "Copies email directly to clipboard", action: () => window.app.copyEmail() },
       { type: "Action", title: "Open GitHub Profile", desc: "Visit https://github.com/santoshkkashyap25", action: () => window.open(SITE_CONFIG.profile.github, "_blank") },
-      { type: "Action", title: "Open LinkedIn Profile", desc: "Connect professionally on LinkedIn", action: () => window.open(SITE_CONFIG.profile.linkedin, "_blank") }
+      { type: "Action", title: "Open LinkedIn Profile", desc: "Connect professionally on LinkedIn", action: () => window.open(SITE_CONFIG.profile.linkedin, "_blank") },
+      { type: "Action", title: "Open Substack Newsletter (@skknotes)", desc: "Read engineering essays at https://substack.com/@skknotes", action: () => window.open(SITE_CONFIG.profile.substack, "_blank") }
     ];
 
     // Add Projects

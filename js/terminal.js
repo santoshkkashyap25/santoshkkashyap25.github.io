@@ -198,6 +198,7 @@ class TerminalController {
   <div>📧 Email: <a href="mailto:${SITE_CONFIG.profile.email}" class="term-link">${SITE_CONFIG.profile.email}</a></div>
   <div>🐙 GitHub: <a href="${SITE_CONFIG.profile.github}" target="_blank" class="term-link">${SITE_CONFIG.profile.github}</a></div>
   <div>💼 LinkedIn: <a href="${SITE_CONFIG.profile.linkedin}" target="_blank" class="term-link">${SITE_CONFIG.profile.linkedin}</a></div>
+  <div>✍ Substack: <a href="${SITE_CONFIG.profile.substack}" target="_blank" class="term-link">${SITE_CONFIG.profile.substack}</a></div>
 </div>
         `);
         break;
