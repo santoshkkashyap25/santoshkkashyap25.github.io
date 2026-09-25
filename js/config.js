@@ -30,8 +30,7 @@ const SITE_CONFIG = {
         { name: "Tool & Function Calling", level: "Expert", tag: "Agents" },
         { name: "Guardrails (HarmBench / IFEval)", level: "Expert", tag: "Safety" },
         { name: "Prompt Hierarchy & Jailbreak Defense", level: "Expert", tag: "Security" },
-        { name: "Token Streaming (Groq / Gemini)", level: "Expert", tag: "Low Latency" },
-        { name: "Page-Level Citation Extraction", level: "Expert", tag: "Attribution" }
+        { name: "Token Streaming (Groq / Gemini)", level: "Expert", tag: "Low Latency" }
       ]
     },
     {
@@ -137,7 +136,7 @@ const SITE_CONFIG = {
       institution: "Malaviya National Institute of Technology (MNIT), Jaipur",
       degree: "M.Tech in Computer Science and Engineering",
       period: "Aug 2022 – Jun 2024",
-      grade: "CGPA: 8.47 / 10",
+      grade: "",
       details: "Focused on machine learning algorithms, deep learning architectures, and generative AI systems."
     },
     {
@@ -261,14 +260,14 @@ const SITE_CONFIG = {
 
   blogPosts: [
     {
-      slug: "rag-pipeline-optimization",
-      title: "Architecting Production RAG: BM25 Re-Ranking, Page-Level Citations, and Sub-Second Streaming",
-      summary: "How to eliminate hallucinations and achieve sub-second live web verification using hybrid dense-sparse retrieval, BM25Okapi scoring, and LangGraph streaming.",
-      date: "2026-09-18",
-      readTime: "6 min read",
-      category: "RAG & GenAI",
-      tags: ["RAG", "LangGraph", "Groq", "FastAPI", "BM25"],
-      markdownFile: "posts/rag-pipeline-optimization.md"
+      slug: "the-1-bit-revolution",
+      title: "The 1-Bit Revolution: The AI That Runs on Just Three Numbers",
+      summary: "What if we've been scaling the wrong thing in AI? How native 1.58-bit ternary architectures [-1, 0, +1] break the compute curve, cut memory by 80%, and challenge the assumption that intelligence requires floating-point precision.",
+      date: "2026-03-20",
+      readTime: "7 min read",
+      category: "LLM Architecture & Efficiency",
+      tags: ["BitNet", "Ternary Weights", "Quantization", "Efficiency", "Deep Learning"],
+      markdownFile: "posts/the-1-bit-revolution.md"
     },
     {
       slug: "quantized-roberta-inference",
@@ -279,16 +278,6 @@ const SITE_CONFIG = {
       category: "MLOps & Systems",
       tags: ["ONNX", "Quantization", "RoBERTa", "MLOps", "FastAPI"],
       markdownFile: "posts/quantized-roberta-inference.md"
-    },
-    {
-      slug: "graph-neural-networks-misinformation",
-      title: "Graph Neural Networks for Misinformation: Benchmarking GCN, GAT, and GraphSAGE on Cascade Graphs",
-      summary: "Why structural propagation graphs outperform pure text NLP for social misinformation detection. A deep dive into PyTorch Geometric and Optuna Bayesian optimization.",
-      date: "2026-07-10",
-      readTime: "7 min read",
-      category: "Deep Learning",
-      tags: ["PyTorch Geometric", "GNN", "BERT", "Optuna", "Graph AI"],
-      markdownFile: "posts/graph-neural-networks-misinformation.md"
     }
   ],
 
@@ -297,8 +286,8 @@ const SITE_CONFIG = {
     about: "Santosh Kumar Kashyap - AI/ML Engineer focused on machine learning systems, deep learning, and generative AI.",
     experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
     research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]: https://ieeexplore.ieee.org/document/11398187/",
-    education: "M.Tech CSE from MNIT Jaipur (8.47 CGPA), B.Tech CSE from HPTU (Gold Medalist)",
-    portfolio: "Interactive Next.js Portfolio Website: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
+    education: "M.Tech CSE from MNIT Jaipur, B.Tech CSE from HPTU (Gold Medalist)",
+    portfolio: "Portfolio Website: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
     resume: "To request my latest comprehensive resume, send an email to santoshkkashyap25@gmail.com with subject 'Resume Request'.",
     stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
     skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Cloud & AI Infrastructure.",

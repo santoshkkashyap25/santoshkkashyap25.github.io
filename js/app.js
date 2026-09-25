@@ -141,7 +141,7 @@ class PortfolioApp {
                   <span class="edu-period font-mono">${edu.period}</span>
                 </div>
                 <div class="edu-institution">${edu.institution}</div>
-                <div class="edu-grade font-mono">${edu.grade}</div>
+                ${edu.grade ? `<div class="edu-grade font-mono">${edu.grade}</div>` : ""}
                 <p class="edu-details">${edu.details}</p>
               </div>
             `).join("")}
