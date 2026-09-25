@@ -14,7 +14,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 485px;
+  height: 500px;
   max-width: 580px;
   width: 100%;
   margin-left: auto;
@@ -85,29 +85,26 @@
 /* Terminal Body & Scrollable Area */
 .terminal-body {
   flex: 1;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
   overflow-y: auto;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--terminal-text);
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .terminal-body::-webkit-scrollbar {
-  width: 6px;
-}
-.terminal-body::-webkit-scrollbar-track {
-  background: var(--terminal-bg);
-}
-.terminal-body::-webkit-scrollbar-thumb {
-  background: var(--border-medium);
-  border-radius: 3px;
+  display: none;
+  width: 0px;
+  height: 0px;
 }
 
 .terminal-banner {
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.65rem;
   border-bottom: 1px dashed var(--border-subtle);
   color: var(--text-muted);
 }
@@ -115,10 +112,10 @@
 .term-ascii {
   color: var(--accent-primary);
   font-weight: 700;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   line-height: 1.15;
   white-space: pre;
-  overflow-x: auto;
+  overflow: hidden;
   margin-bottom: 0.4rem;
 }
 
