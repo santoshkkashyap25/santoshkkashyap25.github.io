@@ -555,7 +555,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   INDUSTRY EXPERIENCE SECTION (NDA-SAFE)
+   INDUSTRY EXPERIENCE SECTION
    -------------------------------------------------------------------------- */
 .experience-list {
   display: flex;
@@ -1211,6 +1211,15 @@
   font-family: var(--font-mono);
 }
 
+[data-theme="light"] .sys-status-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .sys-row {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
 .sys-header {
   display: flex;
   align-items: center;
@@ -1351,6 +1360,7 @@
 }
 
 .reader-meta-header {
+  display: none !important;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-subtle);

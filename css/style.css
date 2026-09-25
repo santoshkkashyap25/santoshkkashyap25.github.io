@@ -15,6 +15,7 @@
   --border-subtle: #1e293b;
   --border-medium: #334155;
   --border-glow: rgba(56, 189, 248, 0.28);
+  --bg-header: rgba(10, 13, 20, 0.85);
   
   --accent-primary: #38bdf8;     /* Cyan */
   --accent-secondary: #10b981;   /* Emerald */
@@ -64,6 +65,7 @@
   --border-subtle: #16361a;
   --border-medium: #225227;
   --border-glow: rgba(34, 197, 94, 0.35);
+  --bg-header: rgba(4, 8, 4, 0.88);
 
   --accent-primary: #22c55e;
   --accent-secondary: #4ade80;
@@ -96,6 +98,7 @@
   --border-subtle: #44475a;
   --border-medium: #6272a4;
   --border-glow: rgba(189, 147, 249, 0.35);
+  --bg-header: rgba(30, 30, 46, 0.88);
 
   --accent-primary: #bd93f9;
   --accent-secondary: #50fa7b;
@@ -139,6 +142,8 @@
   --text-muted: #475569;
   --text-faint: #64748b;
   --text-accent: #0284c7;
+
+  --bg-header: rgba(255, 255, 255, 0.94);
 
   --terminal-bg: #1e293b;
   --terminal-bar: #0f172a;
@@ -328,7 +333,7 @@ button {
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: rgba(10, 13, 20, 0.85);
+  background-color: var(--bg-header);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -351,6 +356,7 @@ button {
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--text-main);
+  outline: none;
 }
 
 .brand-logo .prompt-char {
@@ -386,6 +392,17 @@ button {
   gap: 0.25rem;
   position: relative;
   padding: 0.3rem 0;
+  outline: none;
+}
+
+.nav-link:focus {
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .nav-link .nav-num {

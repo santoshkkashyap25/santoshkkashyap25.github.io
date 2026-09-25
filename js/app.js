@@ -15,6 +15,7 @@ class PortfolioApp {
   }
 
   init() {
+    this.initSystemThemeListener();
     this.setTheme(this.currentTheme);
     this.renderHeaderAndHero();
     this.renderExperience();
@@ -28,10 +29,26 @@ class PortfolioApp {
     this.initToast();
   }
 
+  initSystemThemeListener() {
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (this.currentTheme === "system") {
+          document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+        }
+      });
+    }
+  }
+
   setTheme(themeName) {
     this.currentTheme = themeName;
-    document.documentElement.setAttribute("data-theme", themeName);
     localStorage.setItem("terminal_theme", themeName);
+
+    if (themeName === "system") {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", themeName);
+    }
 
     const themeSelect = document.getElementById("theme-selector");
     if (themeSelect) {
@@ -359,13 +376,7 @@ class PortfolioApp {
     document.body.style.overflow = "hidden";
 
     titleEl.textContent = post.title;
-    metaEl.innerHTML = `
-      <span class="font-mono">${post.category}</span>
-      <span class="sep">•</span>
-      <span class="font-mono">${post.date}</span>
-      <span class="sep">•</span>
-      <span class="font-mono">${post.readTime}</span>
-    `;
+    if (metaEl) metaEl.innerHTML = "";
 
     bodyEl.innerHTML = `
       <div class="reader-loading font-mono">
@@ -401,8 +412,6 @@ class PortfolioApp {
       // Fallback content rendering
       bodyEl.innerHTML = MarkdownRenderer.render(`
 # ${post.title}
-
-*Published on ${post.date} • ${post.readTime} • Category: ${post.category}*
 
 ---
 

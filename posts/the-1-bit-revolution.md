@@ -1,7 +1,5 @@
 # The 1-Bit Revolution: The AI That Runs on Just Three Numbers
 
-*Published in March 2026 • 7 min read • Category: LLM Architecture & Efficiency*
-
 For years, the AI playbook has been simple:
 
 > **More parameters → More compute → Better performance**

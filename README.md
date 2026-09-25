@@ -1,6 +1,6 @@
 # Santosh Kumar Kashyap — GitHub Pages Portfolio & Tech Blog
 
-> Production-grade personal portfolio and engineering research blog for **Santosh Kumar Kashyap** (`santoshkkashyap25`), AI / ML Engineer & GenAI Systems Developer.
+> Production-grade personal portfolio and engineering research blog for **Santosh Kumar Kashyap** (`santoshkkashyap25`), AI / ML Engineer.
 
 Designed with a high-performance **Terminal & Developer Monospace** aesthetic: clean, uncluttered, code-editor inspired, responsive, and completely zero-build.
 
@@ -18,10 +18,9 @@ Designed with a high-performance **Terminal & Developer Monospace** aesthetic: c
   - `sentiment-analysis` (INT8 Quantized RoBERTa on ONNX Runtime with drift monitoring)
   - `fake-news-detection-gnn` (Social misinformation cascade classifier with PyTorch Geometric)
   - `insurance-default-risk-profiler` (Probability-calibrated XGBoost for class imbalance)
-  - `kart-ecommerce` (Full-stack Django platform)
-  - `iris-flower-classifier` (Scikit-Learn pipeline & REST API)
+  - `iris-flower-classifier` (Scikit-Learn pipeline & classifier)
 - **Interactive Git Commit Graph**: Experience and career journey formatted as an authentic `git log --graph --oneline` timeline.
-- **Theme Switcher**: 4 developer color palettes:
+- **Theme Switcher**: 5 developer color palettes (`system`, `dark`, `matrix`, `dracula`, `light`).
   - `dark` (Cyber Slate / Terminal default)
   - `matrix` (Phosphor Green hacker aesthetic)
   - `dracula` (Vibrant developer purple, pink & cyan)

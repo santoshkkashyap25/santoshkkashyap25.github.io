@@ -7,13 +7,13 @@ const SITE_CONFIG = {
     name: "Santosh Kumar Kashyap",
     shortName: "Santosh K.",
     handle: "santoshkkashyap25",
-    role: "AI / ML Engineer & GenAI Systems Developer",
+    role: "AI / ML Engineer",
     statusText: "Open to AI/ML Engineering & GenAI Roles",
     bio: "AI / ML Engineer focused on designing intelligent systems, machine learning pipelines, generative AI solutions, and deep learning architectures.",
     location: "India",
     email: "santoshkkashyap25@gmail.com",
     github: "https://github.com/santoshkkashyap25",
-    linkedin: "https://www.linkedin.com/in/santosh-kumar-kashyap-8b8359218/",
+    linkedin: "https://www.linkedin.com/in/santoshkkashyap25/",
     substack: "https://substack.com/@skknotes",
     portfolioApp: "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
     website: "https://santoshkkashyap25.github.io"
@@ -154,7 +154,7 @@ const SITE_CONFIG = {
       title: "Live RAG Fact-Checker",
       category: "rag",
       categoryName: "RAG & GenAI",
-      badge: "LIVE DEMO",
+      badge: "RAG & AGENTS",
       stars: 1,
       shortDescription: "Real-time AI fact-checking system verifying claim veracity against live web intelligence (DuckDuckGo + Wikipedia) with BM25Okapi re-ranking and multi-provider LLM reasoning (Groq, Gemini, OpenAI, Claude).",
       highlights: [
@@ -172,9 +172,9 @@ const SITE_CONFIG = {
       title: "Ask Your Doc (PDF Chat via RAG)",
       category: "rag",
       categoryName: "RAG & GenAI",
-      badge: "STREAMING",
+      badge: "DOCUMENT AI",
       stars: 1,
-      shortDescription: "Interactive conversational document intelligence platform using dense retrieval. Query long PDF research papers with live token streaming and exact page citations.",
+      shortDescription: "Conversational document intelligence platform using dense retrieval. Query long PDF research papers with token streaming and exact page citations.",
       highlights: [
         "LangGraph stateful conversation graphs with memory retention",
         "Exact page-level citation extraction avoiding LLM hallucinations",
@@ -225,7 +225,7 @@ const SITE_CONFIG = {
       title: "Insurance Premium Default Risk Profiler",
       category: "mlops",
       categoryName: "MLOps & Analytics",
-      badge: "ROI OPTIMIZED",
+      badge: "RISK MODEL",
       stars: 1,
       shortDescription: "End-to-end insurance premium default prediction system addressing severe class imbalance (94:6) with probability-calibrated XGBoost to maximize outreach retention ROI.",
       highlights: [
@@ -240,18 +240,18 @@ const SITE_CONFIG = {
     },
     {
       id: "iris-flower-classifier",
-      title: "Iris Flower Classifier & REST API",
+      title: "Iris Flower Classifier",
       category: "mlops",
       categoryName: "Machine Learning API",
-      badge: "REST API",
+      badge: "CLASSIFICATION",
       stars: 1,
-      shortDescription: "Interactive Iris flower species classifier and REST API built with Flask, Scikit-Learn pipelines, confidence scoring, automated unit tests, and cloud deployment.",
+      shortDescription: "Iris flower species classifier built with Flask, Scikit-Learn pipelines, confidence scoring, automated unit tests, and cloud deployment.",
       highlights: [
         "Scikit-Learn preprocessing and modeling pipeline serialization",
         "Confidence score thresholding for out-of-distribution inputs",
         "Automated unit testing suite"
       ],
-      technologies: ["Flask", "Scikit-Learn", "Python", "REST API", "Docker"],
+      technologies: ["Flask", "Scikit-Learn", "Python", "API", "Docker"],
       githubUrl: "https://github.com/santoshkkashyap25/iris-flower-classifier",
       demoUrl: "https://flotect.onrender.com/",
       isFeatured: false
@@ -268,21 +268,11 @@ const SITE_CONFIG = {
       category: "LLM Architecture & Efficiency",
       tags: ["BitNet", "Ternary Weights", "Quantization", "Efficiency", "Deep Learning"],
       markdownFile: "posts/the-1-bit-revolution.md"
-    },
-    {
-      slug: "quantized-roberta-inference",
-      title: "Optimizing Transformer Inference: INT8 Quantization with ONNX and Statistical Drift Monitoring",
-      summary: "Achieving a 4x throughput boost and <15ms p95 latency on RoBERTa classifiers while maintaining >90% negative recall and monitoring Kolmogorov-Smirnov feature drift.",
-      date: "2026-08-25",
-      readTime: "8 min read",
-      category: "MLOps & Systems",
-      tags: ["ONNX", "Quantization", "RoBERTa", "MLOps", "FastAPI"],
-      markdownFile: "posts/quantized-roberta-inference.md"
     }
   ],
 
   terminalCommands: {
-    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `portfolio`, `resume`, `stats`, `contact`, `theme [dark|matrix|dracula|light]`, `clear`, `gui`",
+    help: "List available commands: `about`, `experience`, `projects`, `research`, `education`, `skills`, `blog`, `portfolio`, `resume`, `stats`, `contact`, `theme [system|dark|matrix|dracula|light]`, `clear`, `gui`",
     about: "Santosh Kumar Kashyap - AI/ML Engineer focused on machine learning systems, deep learning, and generative AI.",
     experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
     research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]: https://ieeexplore.ieee.org/document/11398187/",
@@ -291,7 +281,7 @@ const SITE_CONFIG = {
     resume: "To request my latest comprehensive resume, send an email to santoshkkashyap25@gmail.com with subject 'Resume Request'.",
     stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
     skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Cloud & AI Infrastructure.",
-    contact: "Email: santoshkkashyap25@gmail.com | Portfolio: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/ | GitHub: https://github.com/santoshkkashyap25 | Substack: https://substack.com/@skknotes",
+    contact: "Email: santoshkkashyap25@gmail.com | Portfolio: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/ | GitHub: https://github.com/santoshkkashyap25 | LinkedIn: https://www.linkedin.com/in/santoshkkashyap25/ | Substack: https://substack.com/@skknotes",
     clear: "Clear terminal buffer"
   }
 };

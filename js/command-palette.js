@@ -83,8 +83,8 @@ class CommandPalette {
   getItems() {
     const items = [
       // Sections
-      { type: "Section", title: "Experience", desc: "AI/ML Engineer & SDE experience (NDA-safe)", action: () => window.app.scrollToSection("experience") },
-      { type: "Section", title: "Personal Projects", desc: "Open-source repositories and live demos", action: () => window.app.scrollToSection("projects") },
+      { type: "Section", title: "Experience", desc: "AI/ML Engineer & SDE experience", action: () => window.app.scrollToSection("experience") },
+      { type: "Section", title: "Personal Projects", desc: "Open-source repositories and case studies", action: () => window.app.scrollToSection("projects") },
       { type: "Section", title: "Research & Education", desc: "IEEE co-authored publication and M.Tech / B.Tech degrees", action: () => window.app.scrollToSection("research") },
       { type: "Section", title: "Skills & Tech Matrix", desc: "GenAI, Search, Deep Learning, MLOps stack", action: () => window.app.scrollToSection("skills") },
       { type: "Section", title: "Technical Blog & Substack", desc: "Engineering deep-dives & architecture breakdowns", action: () => window.app.scrollToSection("blog") },
@@ -92,6 +92,7 @@ class CommandPalette {
       { type: "Section", title: "Contact Information", desc: "Email, Substack, and professional channels", action: () => window.app.scrollToSection("contact") },
 
       // Theme Actions
+      { type: "Theme", title: "Switch Theme: System (Auto)", desc: "Syncs with your operating system preference", action: () => window.app.setTheme("system") },
       { type: "Theme", title: "Switch Theme: Dark (Cyber Slate)", desc: "Default modern dark aesthetic", action: () => window.app.setTheme("dark") },
       { type: "Theme", title: "Switch Theme: Matrix (Phosphor Green)", desc: "Retro terminal hacker aesthetic", action: () => window.app.setTheme("matrix") },
       { type: "Theme", title: "Switch Theme: Dracula (Neon Violet)", desc: "Vibrant high-contrast developer theme", action: () => window.app.setTheme("dracula") },

@@ -117,7 +117,6 @@ class TerminalController {
             <div class="term-proj-item">
               <span class="term-num">[${idx + 1}]</span>
               <a href="${p.githubUrl}" target="_blank" class="term-link font-bold">${p.title}</a>
-              <span class="term-badge">${p.badge}</span>
               <div class="term-text text-sm">${p.shortDescription}</div>
               <div class="term-tech-tags">${p.technologies.slice(0, 5).join(" • ")}</div>
             </div>
@@ -234,8 +233,8 @@ class TerminalController {
       case "portfolio":
         this.appendLine(`
 <div class="term-box">
-  <div class="term-highlight">Interactive Next.js Portfolio:</div>
-  <div>Explore interactive components, project case studies, and live systems at:</div>
+  <div class="term-highlight">Portfolio Website:</div>
+  <div>Explore engineering case studies, systems architectures, and projects at:</div>
   <div class="mt-1"><a href="${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'} ↗</a></div>
 </div>
         `);
@@ -265,14 +264,19 @@ class TerminalController {
         break;
 
       case "theme":
-        const validThemes = ["dark", "matrix", "dracula", "light"];
+        const validThemes = ["system", "dark", "matrix", "dracula", "light"];
         if (!args[0] || !validThemes.includes(args[0].toLowerCase())) {
-          this.appendLine(`<span class="term-err">Usage: theme [dark | matrix | dracula | light]</span>`);
+          this.appendLine(`<span class="term-err">Usage: theme [system | dark | matrix | dracula | light]</span>`);
           return;
         }
         const selectedTheme = args[0].toLowerCase();
         window.app.setTheme(selectedTheme);
-        this.appendLine(`Theme updated to: <span class="term-accent">${selectedTheme}</span>`);
+        if (selectedTheme === "system") {
+          const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          this.appendLine(`Theme updated to: <span class="term-accent">system</span> (adapts to OS: ${isDark ? "dark" : "light"})`);
+        } else {
+          this.appendLine(`Theme updated to: <span class="term-accent">${selectedTheme}</span>`);
+        }
         break;
 
       case "clear":
@@ -302,19 +306,19 @@ class TerminalController {
     this.appendLine(`
 <div class="term-help-table">
   <div class="term-help-row"><span class="term-cmd font-bold">about</span> <span class="term-desc">Display profile summary, focus, and status</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">experience</span> <span class="term-desc">Inspect NDA-safe engineering roles & highlights</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">experience</span> <span class="term-desc">Inspect engineering roles & highlights</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">skills</span> <span class="term-desc">Show categorized AI/ML and engineering skill matrix</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">projects</span> <span class="term-desc">List GitHub repositories with live links</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">projects</span> <span class="term-desc">List GitHub repositories and technical summaries</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">research</span> <span class="term-desc">View IEEE publication & concurrency deep learning paper</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">education</span> <span class="term-desc">Inspect M.Tech/B.Tech degrees and academic background</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">repo &lt;name&gt;</span> <span class="term-desc">Directly open a repository in GitHub (e.g. repo rag)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">blog</span> <span class="term-desc">List technical articles and research breakdowns</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">portfolio</span> <span class="term-desc">Open link to interactive Next.js portfolio website</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">portfolio</span> <span class="term-desc">Open link to portfolio website</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">resume</span> <span class="term-desc">Get instructions to request latest resume</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">stats</span> <span class="term-desc">Inspect engineering metrics & system benchmarks</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">contact</span> <span class="term-desc">Get direct email, Substack, and social channels</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">theme &lt;name&gt;</span> <span class="term-desc">Change UI palette (dark, matrix, dracula, light)</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">theme &lt;name&gt;</span> <span class="term-desc">Change UI palette (system, dark, matrix, dracula, light)</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">clear</span> <span class="term-desc">Clear the terminal screen</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">gui</span> <span class="term-desc">Scroll to graphical projects showcase</span></div>
 </div>
