@@ -10,6 +10,11 @@ Resume.pdf
 cv.pdf
 CV.pdf
 
+# AI Agent Instructions (Local only)
+AGENTS.md
+agents.md
+.agents/
+
 # Operating System Files
 .DS_Store
 .DS_Store?
