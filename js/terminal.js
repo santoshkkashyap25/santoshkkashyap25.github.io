@@ -86,7 +86,6 @@ class TerminalController {
         this.appendLine(`
 <div class="term-box">
   <div class="term-highlight font-bold">${SITE_CONFIG.profile.name} (${SITE_CONFIG.profile.handle})</div>
-  <div class="term-accent">${SITE_CONFIG.profile.role}</div>
   <p class="term-text mt-1">${SITE_CONFIG.profile.bio}</p>
   <div class="term-muted mt-1">Location: ${SITE_CONFIG.profile.location} | Status: ${SITE_CONFIG.profile.statusText}</div>
 </div>
@@ -149,7 +148,6 @@ class TerminalController {
             <div class="term-blog-item">
               <span class="term-num">[${i + 1}]</span>
               <a href="javascript:void(0)" onclick="window.app.openArticle('${post.slug}')" class="term-link font-bold">${post.title}</a>
-              <span class="term-muted">(${post.readTime})</span>
               <div class="term-text text-sm">${post.summary}</div>
             </div>
           `;
@@ -256,8 +254,8 @@ class TerminalController {
       case "resume":
         this.appendLine(`
 <div class="term-box">
-  <div class="term-highlight">Resume Request:</div>
-  <div>To request my latest comprehensive resume, send an email to:</div>
+  <div class="term-highlight">Get Resume:</div>
+  <div>To get my latest comprehensive resume, send an email to:</div>
   <div class="mt-1"><a href="mailto:${SITE_CONFIG.profile.email}?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" class="term-link">${SITE_CONFIG.profile.email}</a></div>
 </div>
         `);
@@ -315,7 +313,7 @@ class TerminalController {
   <div class="term-help-row"><span class="term-cmd font-bold">blog</span> <span class="term-desc">List technical articles and research breakdowns</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">portfolio</span> <span class="term-desc">Open link to portfolio website</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">read &lt;id&gt;</span> <span class="term-desc">Open article reader modal (e.g. read 1)</span></div>
-  <div class="term-help-row"><span class="term-cmd font-bold">resume</span> <span class="term-desc">Get instructions to request latest resume</span></div>
+  <div class="term-help-row"><span class="term-cmd font-bold">resume</span> <span class="term-desc">Get instructions to receive latest resume</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">stats</span> <span class="term-desc">Inspect engineering metrics & system benchmarks</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">contact</span> <span class="term-desc">Get direct email, Substack, and social channels</span></div>
   <div class="term-help-row"><span class="term-cmd font-bold">theme &lt;name&gt;</span> <span class="term-desc">Change UI palette (system, dark, matrix, dracula, light)</span></div>

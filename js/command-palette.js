@@ -100,7 +100,7 @@ class CommandPalette {
 
       // Quick Actions
       { type: "Action", title: "Open Portfolio Website", desc: "Visit https://portfolio-lemon-eight-ubrmijgffb.vercel.app/", action: () => window.open(SITE_CONFIG.profile.portfolioApp || "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/", "_blank") },
-      { type: "Action", title: "Request Resume via Email", desc: "Send an email request for latest resume", action: () => window.location.href = "mailto:santoshkkashyap25@gmail.com?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" },
+      { type: "Action", title: "Get Resume via Email", desc: "Send an email to get latest resume", action: () => window.location.href = "mailto:santoshkkashyap25@gmail.com?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" },
       { type: "Action", title: "View IEEE Research Publication", desc: "SafeCode: Data Race Detection on IEEE Xplore", action: () => window.open(SITE_CONFIG.research.url || "https://ieeexplore.ieee.org/document/11398187/", "_blank") },
       { type: "Action", title: "Copy Email (santoshkkashyap25@gmail.com)", desc: "Copies email directly to clipboard", action: () => window.app.copyEmail() },
       { type: "Action", title: "Open GitHub Profile", desc: "Visit https://github.com/santoshkkashyap25", action: () => window.open(SITE_CONFIG.profile.github, "_blank") },
@@ -129,7 +129,7 @@ class CommandPalette {
       items.push({
         type: "Article",
         title: post.title,
-        desc: `${post.readTime} • ${post.category}`,
+        desc: post.category,
         action: () => window.app.openArticle(post.slug)
       });
     });
