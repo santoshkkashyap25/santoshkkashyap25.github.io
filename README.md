@@ -2,7 +2,8 @@
 
 Personal portfolio and technical writing website for **Santosh Kumar Kashyap** ([@santoshkkashyap25](https://github.com/santoshkkashyap25)), AI / ML Engineer.
 
-🌐 **Live Site**: [santoshkkashyap25.github.io](https://santoshkkashyap25.github.io/)
+🌐 **Live Site**: [santoshkkashyap25.github.io](https://santoshkkashyap25.github.io/)  
+🚀 **Portfolio**: [portfolio-lemon-eight-ubrmijgffb.vercel.app](https://portfolio-lemon-eight-ubrmijgffb.vercel.app/)
 
 ---
 
@@ -16,6 +17,7 @@ Personal portfolio and technical writing website for **Santosh Kumar Kashyap** (
 
 ### Links & Socials
 - **Website**: [santoshkkashyap25.github.io](https://santoshkkashyap25.github.io/)
+- **Portfolio**: [portfolio-lemon-eight-ubrmijgffb.vercel.app](https://portfolio-lemon-eight-ubrmijgffb.vercel.app/)
 - **Substack**: [@skknotes](https://substack.com/@skknotes)
 - **LinkedIn**: [santoshkkashyap25](https://www.linkedin.com/in/santoshkkashyap25/)
 - **GitHub**: [@santoshkkashyap25](https://github.com/santoshkkashyap25)
