@@ -1,6 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0a0d12"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="3"/>
-  <path d="M16 22L28 32L16 42" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M32 42H48" stroke="#10b981" stroke-width="4.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 935 935" fill="none">
+  <rect width="935" height="935" rx="168" fill="#0b1320"/>
+  <!-- Bar 0 (leftmost) -->
+  <rect x="80" y="384" width="50" height="157" rx="25" fill="#0f294e"/>
+  <!-- Bar 1 -->
+  <rect x="170" y="331" width="50" height="264" rx="25" fill="#0f3866"/>
+  <!-- Bar 2 -->
+  <rect x="255" y="243" width="50" height="439" rx="25" fill="#124c8c"/>
+  <!-- Bar 3 -->
+  <rect x="345" y="155" width="50" height="615" rx="25" fill="#1a60b6"/>
+  <!-- Bar 4 (center white) -->
+  <rect x="437" y="68" width="60" height="790" rx="30" fill="#f8fafc"/>
+  <!-- Bar 5 -->
+  <rect x="540" y="155" width="50" height="615" rx="25" fill="#1a60b6"/>
+  <!-- Bar 6 -->
+  <rect x="627" y="243" width="50" height="439" rx="25" fill="#124c8c"/>
+  <!-- Bar 7 -->
+  <rect x="710" y="330" width="50" height="264" rx="25" fill="#0f3866"/>
+  <!-- Bar 8 (rightmost) -->
+  <rect x="800" y="385" width="50" height="155" rx="25" fill="#0f294e"/>
 </svg>
