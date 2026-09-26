@@ -1,0 +1,11 @@
+# robots.txt for https://santoshkkashyap25.github.io/
+User-agent: *
+Allow: /
+
+# Disallow raw hidden git configuration
+Disallow: /.git/
+Disallow: /.github/
+
+# Host and Sitemap
+Host: https://santoshkkashyap25.github.io
+Sitemap: https://santoshkkashyap25.github.io/sitemap.xml

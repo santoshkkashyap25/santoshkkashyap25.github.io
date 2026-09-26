@@ -1,0 +1,62 @@
+# ==============================================================================
+# Git Ignore Configuration
+# ==============================================================================
+
+# Resume & Sensitive Documents
+RESUME.pdf
+resume.pdf
+Resume.pdf
+*.pdf
+cv.pdf
+CV.pdf
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+desktop.ini
+
+# Editors & IDEs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Environment & Local Secrets
+.env
+.env.local
+.env.*.local
+*.local
+credentials.json
+
+# Node & Package Managers (if ever used)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs & Temporary Files
+*.log
+logs/
+tmp/
+temp/
+.temp/
+.cache/
+.parcel-cache/
+.eslintcache
