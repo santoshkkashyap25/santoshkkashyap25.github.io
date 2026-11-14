@@ -159,7 +159,7 @@ const SITE_CONFIG = {
       shortDescription: "Real-time fact-checking system verifying claim veracity against live web intelligence (DuckDuckGo + Wikipedia) with BM25Okapi re-ranking, multi-provider LLMs, and 100% offline Ollama inference.",
       highlights: [
         "Published Python SDK (factguard-ai on PyPI) and Chrome companion extension (MV3)",
-        "80.0% accuracy and 92.9% selective accuracy on held-out TruthfulQA/FEVER test set (0% false positives)",
+        "80.0% accuracy (16/20) on held-out test set; 0 of 8 false claims judged True; backed by 28 adversarial regression tests",
         "100% resilience across 28 adversarial red-team vectors (prompt injection, unit swaps, retracted science)"
       ],
       technologies: ["FastAPI", "Ollama", "Groq", "BM25Okapi", "PyPI SDK", "Docker", "TypeScript"],
