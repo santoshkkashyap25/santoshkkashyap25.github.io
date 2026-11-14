@@ -151,20 +151,20 @@ const SITE_CONFIG = {
   projects: [
     {
       id: "live-rag-fact-checker",
-      title: "Live RAG Fact-Checker",
+      title: "FactGuard AI (Live RAG Fact-Checker)",
       category: "rag",
       categoryName: "RAG & GenAI",
       badge: "RAG & AGENTS",
       stars: 1,
-      shortDescription: "Real-time AI fact-checking system verifying claim veracity against live web intelligence (DuckDuckGo + Wikipedia) with BM25Okapi re-ranking and multi-provider LLM reasoning (Groq, Gemini, OpenAI, Claude).",
+      shortDescription: "Real-time fact-checking system verifying claim veracity against live web intelligence (DuckDuckGo + Wikipedia) with BM25Okapi re-ranking, multi-provider LLMs, and 100% offline Ollama inference.",
       highlights: [
-        "Hybrid dense + sparse BM25Okapi re-ranking for ultra-precise context alignment",
-        "Sub-second live web verification engine with token streaming",
-        "Multi-provider LLM fallback consensus mechanism"
+        "Published Python SDK (factguard-ai on PyPI) and Chrome companion extension (MV3)",
+        "81.2% accuracy on TruthfulQA and FEVER benchmarks with zero false-positive hallucinations",
+        "100% resilience across 28 adversarial red-team vectors (prompt injection, unit swaps, retracted science)"
       ],
-      technologies: ["LangGraph", "FastAPI", "Groq", "BM25Okapi", "DuckDuckGo API", "Docker", "TypeScript"],
+      technologies: ["FastAPI", "Ollama", "Groq", "BM25Okapi", "PyPI SDK", "Docker", "TypeScript"],
       githubUrl: "https://github.com/santoshkkashyap25/live-rag-fact-checker",
-      demoUrl: "https://factguard-frontend-qo5v.onrender.com/",
+      demoUrl: "https://factguard-1gge.onrender.com/",
       isFeatured: true
     },
     {
