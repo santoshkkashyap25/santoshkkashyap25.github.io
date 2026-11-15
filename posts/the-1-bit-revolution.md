@@ -149,5 +149,5 @@ The next generation of AI breakthroughs won't come from scaling harder. **It wil
 - **Research Paper:** *The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits* — [arXiv:2402.17764](https://arxiv.org/abs/2402.17764)
 - **Official Implementation:** `bitnet.cpp` (Microsoft Research) — [GitHub Repository](https://github.com/microsoft/BitNet)
 - **Model Weights:** `microsoft/bitnet-b1.58-2B-4T` on [Hugging Face](https://huggingface.co/microsoft/bitnet-b1.58-2B-4T)
-- **Live Article:** [portfolio-lemon-eight-ubrmijgffb.vercel.app/writing/the-1-bit-revolution](https://portfolio-lemon-eight-ubrmijgffb.vercel.app/writing/the-1-bit-revolution)
+- **Live Article:** [santosh25.vercel.app/writing/the-1-bit-revolution](https://santosh25.vercel.app/writing/the-1-bit-revolution)
 - **Originally Published on Substack:** [SKK — Notes on AI](https://substack.com/@skknotes)

@@ -38,7 +38,7 @@ class PortfolioApp {
       const sessionKey = "skk_viewed_gh_page";
       const alreadyViewed = sessionStorage.getItem(sessionKey) === "1";
       const apiUrl =
-        "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/api/views";
+        "https://santosh25.vercel.app/api/views";
 
       let visitorId = localStorage.getItem("skk_visitor_id") || "";
       if (!visitorId && typeof crypto !== "undefined" && crypto.randomUUID) {

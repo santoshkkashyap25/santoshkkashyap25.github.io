@@ -15,7 +15,7 @@ const SITE_CONFIG = {
     github: "https://github.com/santoshkkashyap25",
     linkedin: "https://www.linkedin.com/in/santoshkkashyap25/",
     substack: "https://substack.com/@skknotes",
-    portfolioApp: "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
+    portfolioApp: "https://santosh25.vercel.app/",
     website: "https://santoshkkashyap25.github.io"
   },
 
@@ -277,11 +277,11 @@ const SITE_CONFIG = {
     experience: "Tecorb Technologies (AI/ML Engineer), Shorthills AI (SDE 1), KVCH (ML Intern). Type `experience` in terminal.",
     research: "SafeCode: Enhancing Data Race Detection in OpenMP Through Hyperparameter-Optimised DCNN [IEEE Publication]: https://ieeexplore.ieee.org/document/11398187/",
     education: "M.Tech CSE from MNIT Jaipur, B.Tech CSE from HPTU (Gold Medalist)",
-    portfolio: "Portfolio Website: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/",
+    portfolio: "Portfolio Website: https://santosh25.vercel.app/",
     resume: "To get my latest comprehensive resume, send an email to santoshkkashyap25@gmail.com with subject 'Resume Request'.",
     stats: "Uptime: 99.98% | Active Models: 5+ Deployed | Primary Stack: PyTorch, LangGraph, FastAPI, ONNX",
     skills: "Categories: GenAI & Agentic Systems, Search & Vector Retrieval, Machine Learning & MLOps, Cloud & AI Infrastructure.",
-    contact: "Email: santoshkkashyap25@gmail.com | Portfolio: https://portfolio-lemon-eight-ubrmijgffb.vercel.app/ | GitHub: https://github.com/santoshkkashyap25 | LinkedIn: https://www.linkedin.com/in/santoshkkashyap25/ | Substack: https://substack.com/@skknotes",
+    contact: "Email: santoshkkashyap25@gmail.com | Portfolio: https://santosh25.vercel.app/ | GitHub: https://github.com/santoshkkashyap25 | LinkedIn: https://www.linkedin.com/in/santoshkkashyap25/ | Substack: https://substack.com/@skknotes",
     clear: "Clear terminal buffer"
   }
 };

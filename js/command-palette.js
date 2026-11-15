@@ -99,7 +99,7 @@ class CommandPalette {
       { type: "Theme", title: "Switch Theme: Light (Clean Monospace)", desc: "Minimalist light code editor style", action: () => window.app.setTheme("light") },
 
       // Quick Actions
-      { type: "Action", title: "Open Portfolio Website", desc: "Visit https://portfolio-lemon-eight-ubrmijgffb.vercel.app/", action: () => window.open(SITE_CONFIG.profile.portfolioApp || "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/", "_blank") },
+      { type: "Action", title: "Open Portfolio Website", desc: "Visit https://santosh25.vercel.app/", action: () => window.open(SITE_CONFIG.profile.portfolioApp || "https://santosh25.vercel.app/", "_blank") },
       { type: "Action", title: "Get Resume via Email", desc: "Send an email to get latest resume", action: () => window.location.href = "mailto:santoshkkashyap25@gmail.com?subject=Resume%20Request%20-%20Santosh%20Kumar%20Kashyap" },
       { type: "Action", title: "View IEEE Research Publication", desc: "SafeCode: Data Race Detection on IEEE Xplore", action: () => window.open(SITE_CONFIG.research.url || "https://ieeexplore.ieee.org/document/11398187/", "_blank") },
       { type: "Action", title: "Copy Email (santoshkkashyap25@gmail.com)", desc: "Copies email directly to clipboard", action: () => window.app.copyEmail() },

@@ -218,7 +218,7 @@ class TerminalController {
         break;
 
       case "stats":
-        fetch("https://portfolio-lemon-eight-ubrmijgffb.vercel.app/api/views")
+        fetch("https://santosh25.vercel.app/api/views")
           .then(res => res.json())
           .then(data => {
             const visitors = (data && data.totalVisitors) ? `${data.totalVisitors.toLocaleString()} unique readers` : "Active";
@@ -251,7 +251,7 @@ class TerminalController {
 <div class="term-box">
   <div class="term-highlight">Portfolio Website:</div>
   <div>Explore engineering case studies, systems architectures, and projects at:</div>
-  <div class="mt-1"><a href="${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'} ↗</a></div>
+  <div class="mt-1"><a href="${SITE_CONFIG.profile.portfolioApp || 'https://santosh25.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://santosh25.vercel.app/'} ↗</a></div>
 </div>
         `);
         break;
@@ -261,7 +261,7 @@ class TerminalController {
 <div class="term-box">
   <div class="term-highlight">Contact & Social Channels:</div>
   <div>Email: <a href="mailto:${SITE_CONFIG.profile.email}" class="term-link">${SITE_CONFIG.profile.email}</a></div>
-  <div>Portfolio: <a href="${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://portfolio-lemon-eight-ubrmijgffb.vercel.app/'}</a></div>
+  <div>Portfolio: <a href="${SITE_CONFIG.profile.portfolioApp || 'https://santosh25.vercel.app/'}" target="_blank" class="term-link">${SITE_CONFIG.profile.portfolioApp || 'https://santosh25.vercel.app/'}</a></div>
   <div>GitHub: <a href="${SITE_CONFIG.profile.github}" target="_blank" class="term-link">${SITE_CONFIG.profile.github}</a></div>
   <div>LinkedIn: <a href="${SITE_CONFIG.profile.linkedin}" target="_blank" class="term-link">${SITE_CONFIG.profile.linkedin}</a></div>
   <div>Substack: <a href="${SITE_CONFIG.profile.substack}" target="_blank" class="term-link">${SITE_CONFIG.profile.substack}</a></div>
