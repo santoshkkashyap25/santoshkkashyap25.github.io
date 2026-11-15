@@ -1360,19 +1360,20 @@
 }
 
 .reader-meta-header {
-  display: none !important;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .reader-meta-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
   color: var(--text-faint);
-  margin-top: 0.5rem;
 }
 
 .reader-meta-row .sep {
@@ -1726,7 +1727,59 @@
 .footer-left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-visitor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.footer-visitor-pill:hover {
+  border-color: var(--border-glow);
+  background: var(--bg-surface-elevated);
+}
+
+.footer-visitor-pill .pill-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-secondary);
+}
+
+.footer-visitor-pill .pill-dot::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-secondary);
+  opacity: 0.4;
+  animation: pill-pulse-anim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pill-pulse-anim {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.6); opacity: 0; }
+}
+
+.footer-visitor-pill .pill-sep {
+  opacity: 0.4;
 }
 
 .footer-prompt {

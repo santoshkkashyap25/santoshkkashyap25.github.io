@@ -46,7 +46,7 @@ class PortfolioApp {
         localStorage.setItem("skk_visitor_id", visitorId);
       }
 
-      if (!isLocal && !alreadyViewed) {
+      if (!alreadyViewed) {
         fetch(apiUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -54,9 +54,34 @@ class PortfolioApp {
         })
           .then((res) => {
             if (res.ok) sessionStorage.setItem(sessionKey, "1");
+            this.fetchGlobalStats(apiUrl);
           })
-          .catch(() => {});
+          .catch(() => {
+            this.fetchGlobalStats(apiUrl);
+          });
+      } else {
+        this.fetchGlobalStats(apiUrl);
       }
+    } catch {}
+  }
+
+  fetchGlobalStats(apiUrl) {
+    try {
+      const url = apiUrl || "https://santosh25.vercel.app/api/views";
+      fetch(url)
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (!data) return;
+          const visitorEl = document.getElementById("footer-visitor-count");
+          const viewEl = document.getElementById("footer-view-count");
+          if (visitorEl && typeof data.totalVisitors === "number") {
+            visitorEl.textContent = `${data.totalVisitors.toLocaleString()} unique visitors`;
+          }
+          if (viewEl && typeof data.totalViews === "number") {
+            viewEl.textContent = `${data.totalViews.toLocaleString()} views`;
+          }
+        })
+        .catch(() => {});
     } catch {}
   }
 
@@ -407,7 +432,39 @@ class PortfolioApp {
     document.body.style.overflow = "hidden";
 
     titleEl.textContent = post.title;
-    if (metaEl) metaEl.innerHTML = "";
+    const headerEl = document.getElementById("reader-meta-header");
+    if (headerEl) headerEl.style.display = "block";
+    if (metaEl) {
+      metaEl.innerHTML = `
+        <span>📅 ${post.date || "2026"}</span>
+        <span class="sep">•</span>
+        <span>⏱️ ${post.readTime || "5 min read"}</span>
+        <span class="sep">•</span>
+        <span id="article-views-counter">👁️ Loading views...</span>
+      `;
+    }
+
+    // Record & sync view count with Upstash Redis backend
+    try {
+      const articleSlug = `writing-${post.slug}`;
+      const apiUrl = "https://santosh25.vercel.app/api/views";
+      const visitorId = localStorage.getItem("skk_visitor_id") || "";
+      fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: articleSlug, visitorId }),
+      })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((stats) => {
+          const counterEl = document.getElementById("article-views-counter");
+          if (counterEl && stats) {
+            const views = typeof stats.totalViews === "number" ? stats.totalViews : 1;
+            const uniques = typeof stats.uniqueViews === "number" ? stats.uniqueViews : 1;
+            counterEl.textContent = `👁️ ${views.toLocaleString()} views • 👥 ${uniques.toLocaleString()} unique`;
+          }
+        })
+        .catch(() => {});
+    } catch {}
 
     bodyEl.innerHTML = `
       <div class="reader-loading font-mono">
