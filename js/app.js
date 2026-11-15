@@ -27,6 +27,37 @@ class PortfolioApp {
     this.initArticleModal();
     this.initTerminal();
     this.initToast();
+    this.initAnalytics();
+  }
+
+  initAnalytics() {
+    try {
+      const isLocal =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+      const sessionKey = "skk_viewed_gh_page";
+      const alreadyViewed = sessionStorage.getItem(sessionKey) === "1";
+      const apiUrl =
+        "https://portfolio-lemon-eight-ubrmijgffb.vercel.app/api/views";
+
+      let visitorId = localStorage.getItem("skk_visitor_id") || "";
+      if (!visitorId && typeof crypto !== "undefined" && crypto.randomUUID) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem("skk_visitor_id", visitorId);
+      }
+
+      if (!isLocal && !alreadyViewed) {
+        fetch(apiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: "github-page", visitorId }),
+        })
+          .then((res) => {
+            if (res.ok) sessionStorage.setItem(sessionKey, "1");
+          })
+          .catch(() => {});
+      }
+    } catch {}
   }
 
   initSystemThemeListener() {

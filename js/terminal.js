@@ -218,14 +218,32 @@ class TerminalController {
         break;
 
       case "stats":
-        this.appendLine(`
+        fetch("https://portfolio-lemon-eight-ubrmijgffb.vercel.app/api/views")
+          .then(res => res.json())
+          .then(data => {
+            const visitors = (data && data.totalVisitors) ? `${data.totalVisitors.toLocaleString()} unique readers` : "Active";
+            const views = (data && data.totalViews) ? `${data.totalViews.toLocaleString()} views` : "Real-time";
+            this.appendLine(`
+<div class="term-box">
+  <div class="term-highlight">System Performance & Visitor Metrics:</div>
+  <div>Uptime: <span class="term-accent">99.98% Available</span></div>
+  <div>Unique Visitors: <span class="term-accent">${visitors}</span></div>
+  <div>Total Page Views: <span class="term-accent">${views}</span></div>
+  <div>Production Deployments: <span class="term-accent">Active on Cloud</span></div>
+  <div>Primary Stack: <span class="term-accent">PyTorch, LangGraph, FastAPI, ONNX Runtime</span></div>
+</div>
+            `);
+          })
+          .catch(() => {
+            this.appendLine(`
 <div class="term-box">
   <div class="term-highlight">System Performance & Benchmarks:</div>
   <div>Uptime: <span class="term-accent">99.98% Available</span></div>
   <div>Production Deployments: <span class="term-accent">Active on Cloud</span></div>
   <div>Primary Stack: <span class="term-accent">PyTorch, LangGraph, FastAPI, ONNX Runtime</span></div>
 </div>
-        `);
+            `);
+          });
         break;
 
       case "portfolio":
