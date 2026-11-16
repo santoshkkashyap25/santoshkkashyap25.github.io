@@ -1807,6 +1807,7 @@
   .terminal-window {
     margin: 0 auto;
     max-width: 580px;
+    height: min(440px, 65vh);
   }
   .skills-grid {
     grid-template-columns: 1fr;
@@ -1826,6 +1827,9 @@
 }
 
 @media (max-width: 768px) {
+  .terminal-window {
+    height: min(400px, 60vh);
+  }
   .main-navigation {
     display: none;
     position: absolute;
@@ -1855,5 +1859,16 @@
   }
   .term-skills-grid, .term-stats-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-window {
+    height: min(370px, 55vh);
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 }
