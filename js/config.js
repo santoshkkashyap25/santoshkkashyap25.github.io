@@ -165,6 +165,8 @@ const SITE_CONFIG = {
       technologies: ["FastAPI", "Ollama", "Groq", "BM25Okapi", "PyPI SDK", "Docker", "TypeScript"],
       githubUrl: "https://github.com/santoshkkashyap25/live-rag-fact-checker",
       demoUrl: "https://factguard-1gge.onrender.com/",
+      writeupUrl: "https://santosh25.vercel.app/projects/llm-fact-checker",
+      pypiUrl: "https://pypi.org/project/factguard-ai/",
       isFeatured: true
     },
     {
@@ -201,6 +203,8 @@ const SITE_CONFIG = {
       technologies: ["RoBERTa", "INT8 Quantization", "ONNX Runtime", "FastAPI", "Drift Detection", "Python"],
       githubUrl: "https://github.com/santoshkkashyap25/sentiment-analysis",
       demoUrl: "https://sentipulse-q0mx.onrender.com/",
+      writeupUrl: "https://santosh25.vercel.app/projects/sentiment-analysis",
+      pypiUrl: "https://pypi.org/project/sentipulse/",
       isFeatured: true
     },
     {

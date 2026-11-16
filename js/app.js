@@ -294,6 +294,23 @@ class PortfolioApp {
               <span>${p.demoLabel || "Live Demo"}</span>
             </a>
           ` : ""}
+          ${p.writeupUrl ? `
+            <a href="${p.writeupUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" title="Read full architectural case study">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+              <span>Case Study</span>
+            </a>
+          ` : ""}
+          ${p.pypiUrl ? `
+            <a href="${p.pypiUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-mono" title="View PyPI Package">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              <span>PyPI</span>
+            </a>
+          ` : ""}
         </div>
       </div>
     `).join("");
