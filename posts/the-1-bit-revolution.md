@@ -10,8 +10,6 @@ That has been the undisputed rule of the transformer era.
 
 What if you could achieve comparable language intelligence at roughly **10% of the energy and memory cost**? Not by lossy compression or post-training pruning, but by designing neural architectures to be radical in their efficiency from the very first gradient update.
 
----
-
 ## Meet the Model
 
 At the center of this paradigm shift is Microsoft's **`bitnet-b1.58-2B-4T`** — a 2-billion parameter language model trained natively in **1.58 bits**.
@@ -21,8 +19,6 @@ microsoft/bitnet-b1.58-2B-4T
 ```
 
 Yes — *bits*, not bytes.
-
----
 
 ## The Core Idea: Three Discrete Values
 
@@ -40,8 +36,6 @@ That is the entire state space.
 
 Just direction and structural sparsity.
 
----
-
 ## Why This Is a Big Deal
 
 Most of the "precision" in modern massive language models might actually be wasted overhead. BitNet leans into a radical hypothesis:
@@ -55,8 +49,6 @@ y = W · x = Σ (w_ij · x_j),   where w_ij ∈ {-1, 0, +1}
 ```
 
 Multiplication disappears entirely from the forward pass. Every operation becomes an accumulation of values where `w = +1`, a subtraction where `w = -1`, and a no-op where `w = 0`.
-
----
 
 ## Native Architecture, Not Quantization
 
@@ -74,8 +66,6 @@ It is a **native 1.58-bit architecture from scratch**. Every component of the tr
 
 This is not a compressed model — it is a fundamentally different species of neural network.
 
----
-
 ## The Numbers That Matter
 
 The empirical benchmark results challenge longstanding assumptions about scaling laws:
@@ -86,8 +76,6 @@ The empirical benchmark results challenge longstanding assumptions about scaling
 
 > **Empirical Parity:** It matches or outperforms full-precision models of equivalent parameter count across standard reasoning and language comprehension benchmarks.
 
----
-
 ## A Mental Model: High-Resolution vs. The Perfect Sketch
 
 A useful mental model to understand how this works:
@@ -96,8 +84,6 @@ A useful mental model to understand how this works:
 - **BitNet:** A master vector architectural sketch.
 
 You don't need continuous floating-point gradients to capture the grammar, reasoning paths, and semantic relationships of human language. You just need the right lines in the exact right places.
-
----
 
 ## The Catch: Custom Runtime Ecosystem
 
@@ -115,8 +101,6 @@ cd BitNet && python -m pip install -e .
 
 The **`bitnet.cpp`** runtime implements specialized SIMD (AVX-512, ARM NEON) instructions that execute ternary dot-products directly using native CPU additions and subtractions.
 
----
-
 ## Why This Matters
 
 If 1.58-bit ternary architectures become standard practice across larger models (7B, 14B, 70B+), three structural shifts will follow:
@@ -130,8 +114,6 @@ Currently, doubling model performance requires exponentially larger server clust
 ### 3. Open Source and Indie AI Expand
 When capable models no longer require $30,000 enterprise GPUs for low-latency inference, independent developers and startups can innovate without Big Tech compute monopolies.
 
----
-
 ## The Real Question
 
 BitNet isn't just an interesting model. It is an existential challenge to the scaling playbook:
@@ -141,8 +123,6 @@ BitNet isn't just an interesting model. It is an existential challenge to the sc
 We might look back at 16-bit and 32-bit language models the same way we look at vacuum tube computing: awe-inspiring, historically pivotal, but wildly inefficient.
 
 The next generation of AI breakthroughs won't come from scaling harder. **It will come from needing less.**
-
----
 
 ## References & Further Reading
 
