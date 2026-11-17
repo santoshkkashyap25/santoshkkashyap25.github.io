@@ -1400,8 +1400,6 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 2rem 0 0.85rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--border-subtle);
 }
 
 .reader-body h3, .md-h3 {
