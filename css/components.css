@@ -1414,9 +1414,7 @@
 }
 
 .md-divider {
-  border: none;
-  border-top: 1px solid var(--border-subtle);
-  margin: 2rem 0;
+  display: none !important;
 }
 
 .md-blockquote {
@@ -1871,16 +1869,14 @@
   }
 }
 
-/* Guard against Mermaid.js temporary measurement containers leaking into the body */
+/* Off-screen guard for any stray Mermaid measurement elements */
 body > [id^="dmermaid_"],
 body > [id^="mermaid_"],
 body > div[id*="mermaid"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
   position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  opacity: 0 !important;
   pointer-events: none !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
+  z-index: -9999 !important;
 }

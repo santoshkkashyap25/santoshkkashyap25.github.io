@@ -350,7 +350,7 @@ flowchart TD
         subgraph MCP["MCP Tools (Capabilities)"]
             T["WHAT capabilities are available\n(read_file, query_db, git_diff)"]
         end
-        Skill -->|guides execution| MCP
+        S -->|guides execution| T
     end
 ```
 
