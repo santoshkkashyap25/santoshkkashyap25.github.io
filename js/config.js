@@ -264,6 +264,16 @@ const SITE_CONFIG = {
 
   blogPosts: [
     {
+      slug: "mcp-explained-from-first-principles",
+      title: "Model Context Protocol (MCP) Explained from First Principles",
+      summary: "A first-principles breakdown of Model Context Protocol (MCP): why agentic AI needs a universal standard instead of fragmented integrations, how MCP clients and servers talk over stdio and Streamable HTTP, and how MCP fits with skills and plugins.",
+      date: "2026-10-15",
+      readTime: "8 min read",
+      category: "Agent Protocols & System Design",
+      tags: ["MCP", "AI Agents", "Protocols", "Tool Calling", "System Design"],
+      markdownFile: "posts/mcp-explained-from-first-principles.md"
+    },
+    {
       slug: "the-1-bit-revolution",
       title: "The 1-Bit Revolution: The AI That Runs on Just Three Numbers",
       summary: "What if we've been scaling the wrong thing in AI? How native 1.58-bit ternary architectures [-1, 0, +1] break the compute curve, cut memory by 80%, and challenge the assumption that intelligence requires floating-point precision.",
