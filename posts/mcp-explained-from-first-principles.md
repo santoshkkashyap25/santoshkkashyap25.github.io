@@ -51,20 +51,30 @@ This is the classic **N × M integration nightmare** that plagued early personal
 
 MCP replaces this fragmentation with a **hub-and-spoke model**:
 
-```text
-               Universal Standard Architecture (N + M)
+```mermaid
+flowchart TD
+    subgraph Clients["AI Applications"]
+        A["Claude Code"]
+        B["Cursor"]
+        C["Custom Agent"]
+    end
 
-     AI Applications                      MCP Servers
-     
-    ┌───────────────┐                  ┌───────────────┐
-    │  Claude Code  │───┐          ┌───│    GitHub     │
-    └───────────────┘   │          │   └───────────────┘
-    ┌───────────────┐   │   MCP    │   ┌───────────────┐
-    │    Cursor     │───┼──────────┼───│  PostgreSQL   │
-    └───────────────┘   │ Protocol │   └───────────────┘
-    ┌───────────────┐   │          │   ┌───────────────┐
-    │ Custom Agent  │───┘          └───│  Local Files  │
-    └───────────────┘                  └───────────────┘
+    subgraph Protocol["Universal Protocol Layer"]
+        M["Standard MCP Protocol\n(JSON-RPC 2.0)"]
+    end
+
+    subgraph Servers["MCP Servers"]
+        D["GitHub Server"]
+        E["PostgreSQL Server"]
+        F["Local Filesystem"]
+    end
+
+    A --> M
+    B --> M
+    C --> M
+    M --> D
+    M --> E
+    M --> F
 ```
 
 Now, each service writes **one** MCP server, and every AI agent speaks **one** MCP client protocol. The complexity collapses from `N × M` down to `N + M`.
@@ -280,34 +290,28 @@ The **AI application** handles model inference, context window management, and c
 
 Here is the exact lifecycle of an agent tool invocation under MCP:
 
-```text
-User           AI Agent            MCP Client           MCP Server           External API
- │                │                    │                    │                     │
- │ 1. "What is the weather in Delhi?"  │                    │                     │
- ├───────────────►│                    │                    │                     │
- │                │ 2. Discover Tools  │                    │                     │
- │                ├───────────────────►│ 3. tools/list      │                     │
- │                │                    ├───────────────────►│                     │
- │                │                    │ 4. Tool Schemas    │                     │
- │                │                    │◄───────────────────┤                     │
- │                │ 5. Returns Schemas │                    │                     │
- │                │◄───────────────────┤                    │                     │
- │                │                    │                    │                     │
- │                │ 6. LLM Reason: Call get_weather(city="Delhi")                 │
- │                │                    │                    │                     │
- │                │ 7. Execute Tool    │                    │                     │
- │                ├───────────────────►│ 8. tools/call      │                     │
- │                │                    ├───────────────────►│ 9. Query API        │
- │                │                    │                    ├────────────────────►│
- │                │                    │                    │ 10. 28°C, Clear     │
- │                │                    │                    │◄────────────────────┤
- │                │                    │ 11. Tool Result    │                     │
- │                │                    │◄───────────────────┤                     │
- │                │ 12. Synthesize     │                    │                     │
- │                │◄───────────────────┤                    │                     │
- │                │                                         │                     │
- │ 13. "Delhi is currently 28°C and clear."                 │                     │
- │◄───────────────┤                                         │                     │
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Agent as AI Agent (LLM)
+    participant Client as MCP Client
+    participant Server as MCP Server
+    participant Ext as Weather Service
+
+    User->>Agent: "What is the weather in Delhi?"
+    Agent->>Client: tools/list
+    Client->>Server: tools/list
+    Server-->>Client: Available Schemas
+    Client-->>Agent: Returns get_weather schema
+    Note over Agent: LLM decides to invoke get_weather
+    Agent->>Client: tools/call (city='Delhi')
+    Client->>Server: tools/call request
+    Server->>Ext: Query Weather API
+    Ext-->>Server: 28°C, Clear
+    Server-->>Client: Tool execution result
+    Client-->>Agent: Structured JSON payload
+    Agent-->>User: "Delhi is currently 28°C and clear."
 ```
 
 Notice how clean the division of labor is:
@@ -336,29 +340,18 @@ The AI model only receives the public interface (metadata, parameter names, type
 
 One of the most persistent confusions in modern agent development is distinguishing between **MCP**, **Skills**, and **Plugins**. They operate at completely different layers of the agent hierarchy:
 
-```text
-┌────────────────────────────────────────────────────────┐
-│                   Agent Architecture                   │
-│                                                        │
-│  ┌──────────────────────────────────────────────────┐  │
-│  │             Skill (Procedural Logic)             │  │
-│  │   "HOW to analyze a codebase & run a security    │  │
-│  │    audit step-by-step"                           │  │
-│  └──────────────────────────┬───────────────────────┘  │
-│                             │ uses                     │
-│                             ▼                          │
-│  ┌──────────────────────────────────────────────────┐  │
-│  │          MCP Tools (Capability Primitive)        │  │
-│  │   "WHAT the agent can do: read_file(),           │  │
-│  │    run_linter(), query_git_diff()"               │  │
-│  └──────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────┘
-                              ▲
-                              │ packaged as
-┌─────────────────────────────┴──────────────────────────┐
-│              Plugin (Distribution Bundle)              │
-│   A directory containing: plugin.json, skills/, mcp.json│
-└────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph Plugin["Agent Plugin (Distribution Package)"]
+        direction TB
+        subgraph Skill["Skill (Procedural Logic)"]
+            S["HOW to execute a task\n(Step-by-step instructions)"]
+        end
+        subgraph MCP["MCP Tools (Capabilities)"]
+            T["WHAT capabilities are available\n(read_file, query_db, git_diff)"]
+        end
+        Skill -->|guides execution| MCP
+    end
 ```
 
 ### The Breakdown:
@@ -370,20 +363,20 @@ One of the most persistent confusions in modern agent development is distinguish
 
 To see how Skills and MCP work in unison, consider an automated **GitHub Code Review Assistant**:
 
-```text
-                       Autonomous Review Agent
-                                  │
-                 ┌────────────────┴────────────────┐
-                 ▼                                 ▼
-        Code Review Skill                  MCP Client Subsystem
-       (Instructions & SOP)                        │
-                 │                                 │ MCP Wire Protocol
-      "1. Fetch git diff                           ▼
-       2. Audit OWASP vulnerabilities"       GitHub MCP Server
-                                                   │
-                                      ┌────────────┴────────────┐
-                                      ▼                         ▼
-                               get_pull_request()        create_review_comment()
+```mermaid
+flowchart TD
+    Agent["Autonomous Review Agent"]
+    Skill["Code Review Skill\n(HOW: Audit OWASP, race conditions)"]
+    Client["MCP Client Subsystem\n(Standard Protocol Transport)"]
+    Server["GitHub MCP Server"]
+    T1["get_pull_request()"]
+    T2["create_review_comment()"]
+
+    Agent --> Skill
+    Agent --> Client
+    Client -->|MCP Wire Protocol| Server
+    Server --> T1
+    Server --> T2
 ```
 
 1. **The Skill** directs the workflow:
@@ -422,6 +415,12 @@ If you ever find yourself getting confused, fall back on this simple organizatio
 Think of an AI Agent as a **newly hired employee**:
 * **The Skill is the Employee Handbook**: It teaches the employee standard operating procedures, policies, and analytical frameworks.
 * **MCP is the Keycard & System Access**: It grants the employee physical badge access to the server room, database credentials, and company software tools.
+
+```mermaid
+flowchart LR
+    A["AI Agent\n(Employee)"] --> B["Skills\n(Handbook & Procedures)"]
+    A --> C["MCP Tools\n(Keycard & System Access)"]
+```
 
 A brilliant employee with no badge access cannot get anything done. An untrained employee with full database credentials will cause havoc. True agency requires both **clear procedural guidance (Skills)** and **standardized, audited capability access (MCP)**.
 

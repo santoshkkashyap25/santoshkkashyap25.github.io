@@ -105,6 +105,23 @@ const MarkdownRenderer = {
     src = src.replace(/__CODE_BLOCK_(\d+)__/g, (match, idx) => {
       const block = codeBlocks[parseInt(idx, 10)];
       if (!block) return "";
+
+      if (block.lang.toLowerCase() === "mermaid") {
+        return `
+          <div class="code-window mermaid-window not-prose my-6">
+            <div class="code-window-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="code-lang-tag">VECTOR DIAGRAM (MERMAID)</span>
+            </div>
+            <div class="mermaid p-4 text-center overflow-x-auto">${this.escapeHtml(block.code.trim())}</div>
+          </div>
+        `;
+      }
+
       const escapedCode = this.escapeHtml(block.code.trim());
       const highlighted = this.highlightSyntax(escapedCode, block.lang);
 

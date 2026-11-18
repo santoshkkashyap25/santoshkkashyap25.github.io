@@ -502,6 +502,25 @@ class PortfolioApp {
 
       bodyEl.innerHTML = MarkdownRenderer.render(rawMarkdown);
       
+      // Initialize any Mermaid diagrams
+      if (window.mermaid) {
+        try {
+          const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+          window.mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? "dark" : "default",
+            securityLevel: "loose",
+            fontFamily: "var(--font-mono, monospace)"
+          });
+          const mermaidNodes = bodyEl.querySelectorAll(".mermaid");
+          if (mermaidNodes.length > 0) {
+            window.mermaid.run({ nodes: mermaidNodes });
+          }
+        } catch (mErr) {
+          console.warn("Mermaid rendering warning:", mErr);
+        }
+      }
+      
       // Reading progress tracker
       const scrollContainer = document.getElementById("reader-scroll-container");
       if (scrollContainer && progressBar) {
