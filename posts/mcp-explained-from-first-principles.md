@@ -235,24 +235,24 @@ Communication travels over HTTPS using Server-Sent Events (SSE) for server-to-cl
 
 In enterprise deployments, you never connect an agent directly to raw backend IP addresses:
 
-```text
-                         Client Workstation
-                                 │
-                                 │ HTTPS (Encrypted)
-                                 ▼
-                    Cloudflare / Reverse Proxy
-                         (mcp.company.internal)
-                                 │
-                                 ▼
-                      Internal Load Balancer
-                                 │
-                 ┌───────────────┴───────────────┐
-                 ▼                               ▼
-       MCP Container Instance 1        MCP Container Instance 2
-                 │                               │
-                 └───────────────┬───────────────┘
-                                 ▼
-                     Internal Enterprise DB
+```mermaid
+flowchart TD
+    Client["Client Workstation"]
+    Proxy["Cloudflare / Reverse Proxy\n(mcp.company.internal)"]
+    LB["Internal Load Balancer"]
+    subgraph VPC ["Enterprise Cloud Infrastructure"]
+        direction TB
+        C1["MCP Container Instance 1"]
+        C2["MCP Container Instance 2"]
+    end
+    DB[("Internal Enterprise DB")]
+
+    Client -->|HTTPS Encrypted| Proxy
+    Proxy --> LB
+    LB --> C1
+    LB --> C2
+    C1 --> DB
+    C2 --> DB
 ```
 
 The standardized MCP protocol allows standard web infrastructure — SSL termination, IAM authorization tokens, load balancing, health monitoring, and autoscaling — to function seamlessly.
@@ -261,27 +261,20 @@ The standardized MCP protocol allows standard web infrastructure — SSL termina
 
 It helps to decouple the concept of an **AI Application** from an **MCP Client**:
 
-```text
-┌────────────────────────────────────────────────────────┐
-│                     AI Application                     │
-│                                                        │
-│  ┌────────────────────────┐  ┌──────────────────────┐  │
-│  │   LLM Reasoning Core   │  │ Prompt Orchestration │  │
-│  │     (Claude / GPT)     │  │     & Memory State   │  │
-│  └───────────┬────────────┘  └──────────┬───────────┘  │
-│              │                          │              │
-│              ▼                          ▼              │
-│  ┌──────────────────────────────────────────────────┐  │
-│  │                 MCP Client Layer                 │  │
-│  │  - Manages Subprocess Pointers & HTTP Sockets    │  │
-│  │  - Parses & Validates JSON-RPC Messages          │  │
-│  │  - Formats Tool Definitions into LLM Schema      │  │
-│  └──────────────────────────┬───────────────────────┘  │
-└─────────────────────────────┼──────────────────────────┘
-                              │
-                              │ MCP Wire Protocol
-                              ▼
-                        MCP Server(s)
+```mermaid
+flowchart TD
+    subgraph App ["AI Application Host"]
+        direction TB
+        subgraph Brain ["Cognitive Layer"]
+            LLM["LLM Reasoning Core (Claude / GPT)"]
+            State["Prompt Orchestration & Memory State"]
+        end
+        Client["MCP Client Layer (Sockets, Wire Protocol & Schema Validation)"]
+        LLM --> Client
+        State --> Client
+    end
+    Server["MCP Server"]
+    Client -->|MCP Wire Protocol| Server
 ```
 
 The **AI application** handles model inference, context window management, and conversational history. The **MCP client** is the modular subsystem responsible for establishing sockets, validating schemas, dispatching calls, and receiving tool payloads.
