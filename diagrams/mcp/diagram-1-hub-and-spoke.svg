@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="100%" height="100%" style="background:#0c1017;border-radius:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,monospace">
+  <defs>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#14b8a6" flood-opacity="0.25"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#2dd4bf" />
+    </marker>
+  </defs>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="880" height="42" fill="#0f172a" rx="12" />
+  <rect x="0" y="30" width="880" height="12" fill="#0f172a" />
+  <line x1="0" y1="42" x2="880" y2="42" stroke="#1e293b" stroke-width="1" />
+  <circle cx="24" cy="21" r="5" fill="#2dd4bf" />
+  <text x="38" y="25" fill="#94a3b8" font-size="12" font-weight="600" letter-spacing="1">UNIVERSAL HUB-AND-SPOKE ARCHITECTURE (N + M)</text>
+  <text x="840" y="25" fill="#64748b" font-size="11" text-anchor="end">VECTOR DIAGRAM</text>
+
+  <!-- Subgraph 1: Clients -->
+  <rect x="30" y="65" width="220" height="320" rx="10" fill="#090d16" stroke="#1e293b" stroke-width="1.5" />
+  <text x="45" y="92" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="0.5">AI APPLICATIONS (CLIENTS)</text>
+  
+  <rect x="50" y="115" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="140" y="145" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">Claude Code</text>
+
+  <rect x="50" y="195" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="140" y="225" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">Cursor IDE</text>
+
+  <rect x="50" y="275" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="140" y="305" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">Custom Agents</text>
+
+  <!-- Central Hub: Universal Protocol -->
+  <rect x="330" y="140" width="220" height="170" rx="12" fill="#0f172a" stroke="#2dd4bf" stroke-width="2" filter="url(#glow)" />
+  <text x="440" y="175" fill="#2dd4bf" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="0.5">UNIVERSAL PROTOCOL</text>
+  <rect x="350" y="195" width="180" height="85" rx="8" fill="#134e4a" stroke="#14b8a6" />
+  <text x="440" y="230" fill="#f0fdfa" font-size="13" font-weight="700" text-anchor="middle">Standard MCP Protocol</text>
+  <text x="440" y="255" fill="#99f6e4" font-size="12" font-family="monospace" text-anchor="middle">JSON-RPC 2.0</text>
+
+  <!-- Subgraph 2: Servers -->
+  <rect x="630" y="65" width="220" height="320" rx="10" fill="#090d16" stroke="#1e293b" stroke-width="1.5" />
+  <text x="645" y="92" fill="#a78bfa" font-size="12" font-weight="700" letter-spacing="0.5">MCP SERVERS (CAPABILITIES)</text>
+
+  <rect x="650" y="115" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="740" y="145" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">GitHub Server</text>
+
+  <rect x="650" y="195" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="740" y="225" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">PostgreSQL Server</text>
+
+  <rect x="650" y="275" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="740" y="305" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle">Local Filesystem</text>
+
+  <!-- Arrows Left to Center -->
+  <path d="M 230 140 L 330 200" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 230 220 L 330 225" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 230 300 L 330 250" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+
+  <!-- Arrows Center to Right -->
+  <path d="M 550 200 L 650 140" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 550 225 L 650 220" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 550 250 L 650 300" stroke="#2dd4bf" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+</svg>

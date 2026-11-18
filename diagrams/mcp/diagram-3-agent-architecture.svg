@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="100%" height="100%" style="background:#0c1017;border-radius:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,monospace">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#2dd4bf" />
+    </marker>
+  </defs>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="760" height="42" fill="#0f172a" rx="12" />
+  <rect x="0" y="30" width="760" height="12" fill="#0f172a" />
+  <line x1="0" y1="42" x2="760" y2="42" stroke="#1e293b" stroke-width="1" />
+  <circle cx="24" cy="21" r="5" fill="#2dd4bf" />
+  <text x="38" y="25" fill="#94a3b8" font-size="12" font-weight="600" letter-spacing="1">AGENT ARCHITECTURE: PLUGINS, SKILLS &amp; TOOLS</text>
+  <text x="720" y="25" fill="#64748b" font-size="11" text-anchor="end">TAXONOMY</text>
+
+  <!-- Outer Box: Plugin -->
+  <rect x="40" y="65" width="680" height="280" rx="12" fill="#090d16" stroke="#334155" stroke-width="1.5" stroke-dasharray="6" />
+  <rect x="60" y="55" width="310" height="24" rx="4" fill="#1e293b" />
+  <text x="70" y="71" fill="#38bdf8" font-size="11" font-weight="700" letter-spacing="0.5">📦 AGENT PLUGIN (DISTRIBUTION PACKAGE)</text>
+
+  <!-- Skill Container -->
+  <rect x="70" y="100" width="620" height="85" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+  <text x="90" y="125" fill="#60a5fa" font-size="12" font-weight="700">SKILL: PROCEDURAL KNOWLEDGE (HOW)</text>
+  <text x="90" y="148" fill="#f8fafc" font-size="13" font-weight="600">Step-by-step reasoning instructions in markdown (SKILL.md)</text>
+  <text x="90" y="168" fill="#94a3b8" font-size="11" font-family="monospace">e.g., "1. Inspect diffs  2. Audit OWASP vulnerabilities  3. File PR comments"</text>
+
+  <!-- Guiding execution Arrow -->
+  <line x1="380" y1="185" x2="380" y2="230" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="310" y="196" width="140" height="22" rx="4" fill="#0f172a" stroke="#2dd4bf" />
+  <text x="380" y="211" fill="#2dd4bf" font-size="10" font-weight="700" text-anchor="middle">guides execution</text>
+
+  <!-- MCP Tools Container -->
+  <rect x="70" y="235" width="620" height="85" rx="8" fill="#1e293b" stroke="#14b8a6" stroke-width="1.5" />
+  <text x="90" y="260" fill="#2dd4bf" font-size="12" font-weight="700">MCP TOOLS: SYSTEM CAPABILITIES (WHAT)</text>
+  <text x="90" y="283" fill="#f8fafc" font-size="13" font-weight="600">Executable primitives exposed over standardized JSON-RPC</text>
+  <text x="90" y="303" fill="#94a3b8" font-size="11" font-family="monospace">e.g., get_pull_request(id), query_db(sql), create_review_comment(file, line)</text>
+</svg>
