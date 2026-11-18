@@ -433,6 +433,23 @@ class PortfolioApp {
     }
   }
 
+  formatDate(dateStr) {
+    if (!dateStr) return "2026";
+    const match = dateStr.match(/^(\d{4})-(\d{2})(?:-\d{2})?$/);
+    if (match) {
+      const year = match[1];
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const mIdx = parseInt(match[2], 10) - 1;
+      if (mIdx >= 0 && mIdx < 12) {
+        return `${monthNames[mIdx]} ${year}`;
+      }
+    }
+    return dateStr;
+  }
+
   async openArticle(slug) {
     const post = SITE_CONFIG.blogPosts.find(p => p.slug === slug);
     if (!post) return;
@@ -453,7 +470,7 @@ class PortfolioApp {
     if (headerEl) headerEl.style.display = "block";
     if (metaEl) {
       metaEl.innerHTML = `
-        <span>📅 ${post.date || "2026"}</span>
+        <span>📅 ${this.formatDate(post.date)}</span>
         <span class="sep">•</span>
         <span>⏱️ ${post.readTime || "5 min read"}</span>
         <span class="sep">•</span>
