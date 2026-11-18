@@ -46,7 +46,7 @@ class PortfolioApp {
         localStorage.setItem("skk_visitor_id", visitorId);
       }
 
-      if (!alreadyViewed) {
+      if (!isLocal && !alreadyViewed) {
         fetch(apiUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -483,21 +483,45 @@ class PortfolioApp {
       const articleSlug = `writing-${post.slug}`;
       const apiUrl = "https://santosh25.vercel.app/api/views";
       const visitorId = localStorage.getItem("skk_visitor_id") || "";
-      fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: articleSlug, visitorId }),
-      })
-        .then((res) => (res.ok ? res.json() : null))
-        .then((stats) => {
-          const counterEl = document.getElementById("article-views-counter");
-          if (counterEl && stats) {
-            const views = typeof stats.totalViews === "number" ? stats.totalViews : 1;
-            const uniques = typeof stats.uniqueViews === "number" ? stats.uniqueViews : 1;
-            counterEl.textContent = `👁️ ${views.toLocaleString()} views • 👥 ${uniques.toLocaleString()} unique`;
-          }
+      const isLocal =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+      const sessionKey = `skk_viewed_${post.slug}`;
+      const alreadyViewed = sessionStorage.getItem(sessionKey) === "1";
+
+      if (!isLocal && !alreadyViewed) {
+        fetch(apiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: articleSlug, visitorId }),
         })
-        .catch(() => {});
+          .then((res) => {
+            if (res.ok) sessionStorage.setItem(sessionKey, "1");
+            return res.ok ? res.json() : null;
+          })
+          .then((stats) => {
+            const counterEl = document.getElementById("article-views-counter");
+            if (counterEl && stats) {
+              const views = typeof stats.totalViews === "number" ? stats.totalViews : 1;
+              const uniques = typeof stats.uniqueViews === "number" ? stats.uniqueViews : 1;
+              counterEl.textContent = `👁️ ${views.toLocaleString()} views • 👥 ${uniques.toLocaleString()} unique`;
+            }
+          })
+          .catch(() => {});
+      } else {
+        // Fetch current views without incrementing
+        fetch(`${apiUrl}?slug=${encodeURIComponent(articleSlug)}`)
+          .then((res) => (res.ok ? res.json() : null))
+          .then((stats) => {
+            const counterEl = document.getElementById("article-views-counter");
+            if (counterEl && stats) {
+              const views = typeof stats.totalViews === "number" ? stats.totalViews : 0;
+              const uniques = typeof stats.uniqueViews === "number" ? stats.uniqueViews : 0;
+              counterEl.textContent = `👁️ ${views.toLocaleString()} views • 👥 ${uniques.toLocaleString()} unique`;
+            }
+          })
+          .catch(() => {});
+      }
     } catch {}
 
     bodyEl.innerHTML = `
