@@ -418,8 +418,8 @@ Think of an AI Agent as a **newly hired employee**:
 
 ```mermaid
 flowchart LR
-    A["AI Agent\n(Employee)"] --> B["Skills\n(Handbook & Procedures)"]
-    A --> C["MCP Tools\n(Keycard & System Access)"]
+    A["AI Agent\n(Employee)"] --> B["Skills\n(Handbook and Procedures)"]
+    A --> C["MCP Tools\n(Keycard and System Access)"]
 ```
 
 A brilliant employee with no badge access cannot get anything done. An untrained employee with full database credentials will cause havoc. True agency requires both **clear procedural guidance (Skills)** and **standardized, audited capability access (MCP)**.
