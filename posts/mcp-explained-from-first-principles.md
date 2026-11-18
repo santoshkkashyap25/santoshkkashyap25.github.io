@@ -29,14 +29,13 @@ To make the assistant truly useful, it cannot simply predict text in isolation. 
 Without a unified standard, your AI application is forced to write and maintain a custom connector for every single service:
 
 ```text
-               Custom Connector Spaghetti (N × M)
-               
-                         ┌──► GitHub API Connector
-                         ├──► Slack Webhook Client
-     AI Application ─────┼──► PostgreSQL Driver
-                         ├──► Jira REST Client
-                         ├──► Local Filesystem API
-                         └──► Linear GraphQL Client
+AI Application
+  ├─► GitHub API Connector
+  ├─► Slack Webhook Client
+  ├─► PostgreSQL Driver
+  ├─► Jira REST Client
+  ├─► Local Filesystem API
+  └─► Linear GraphQL Client
 ```
 
 Every service features a completely different authentication flow, distinct data models, varying error codes, and unique rate-limiting semantics.
@@ -84,13 +83,21 @@ Now, each service writes **one** MCP server, and every AI agent speaks **one** M
 Consider two people who speak different native tongues:
 
 ```text
-Person A (English)  ────────[ No Common Protocol ]────────  Person B (Japanese)
+Person A (English)
+       │
+       ✕  [No Common Protocol]
+       │
+Person B (Japanese)
 ```
 
 Communication is impossible without a dedicated translation pipeline. But if both parties agree on a common standard:
 
 ```text
-Person A ────────[ Shared Standard: English ]──────── Person B
+Person A
+       │
+       ▼  [Shared: English]
+       │
+Person B
 ```
 
 Neither person needs to know how the other person's brain processes thoughts internally. They only need to follow the grammar of the shared medium.
@@ -98,7 +105,11 @@ Neither person needs to know how the other person's brain processes thoughts int
 MCP establishes this exact contract between an AI host and an external environment:
 
 ```text
-AI Application  ────────[ Standard MCP Messages ]────────  MCP Server
+AI Application (Client)
+       │
+       ▼  [Standard MCP Messages]
+       │
+MCP Server (Tool Provider)
 ```
 
 The AI application doesn't care if the server is written in Python, Rust, TypeScript, or Go. It doesn't care if the server connects to an AWS RDS instance or a flat CSV file on disk. Both sides simply exchange standardized MCP messages.
@@ -202,15 +213,12 @@ How do these messages physically travel between the client and server? MCP separ
 When both the AI application and the server run on the same physical machine:
 
 ```text
-┌───────────────────────────────────────────────┐
-│              Your Local Machine               │
-│                                               │
-│  ┌──────────────────┐   Standard Input (stdin)│
-│  │  AI Application  │ ───────────────────────►│  ┌────────────────┐
-│  │  (Cursor/Claude) │                         │  │   MCP Server   │
-│  │                  │ ◄───────────────────────│  │ (Python Script)│
-│  └──────────────────┘  Standard Output (stdout│  └────────────────┘
-└───────────────────────────────────────────────┘
+[ Local Machine ]
+AI Host (Cursor / Claude)
+       │  ▲
+       │  │  stdin / stdout
+       ▼  │  (OS Pipes: <1ms)
+MCP Server (Local Subprocess)
 ```
 
 The AI application spawns the MCP server as a sub-process and communicates across standard input and output pipes (`stdin` / `stdout`).
@@ -222,9 +230,15 @@ The AI application spawns the MCP server as a sub-process and communicates acros
 When the MCP server runs on a centralized server or cloud environment:
 
 ```text
-Local Machine                          Cloud Infrastructure (AWS / GCP)
-─────────────                          ────────────────────────────────
-AI Application ────[ HTTPS / SSE ]────► Load Balancer ──► MCP Server Cluster
+[ Local Client Machine ]
+AI Application
+       │
+       ▼  HTTPS / SSE
+[ Cloud Infrastructure ]
+VPC Load Balancer / Gateway
+       │
+       ▼  Private Network
+MCP Server Cluster
 ```
 
 Communication travels over HTTPS using Server-Sent Events (SSE) for server-to-client streaming and HTTP POST requests for client-to-server commands.
@@ -318,14 +332,15 @@ A common misconception is that connecting an LLM to an MCP server exposes your i
 
 **This is entirely false.**
 
-```text
-CLIENT (AI Model View)                 SERVER (Private Host View)
-──────────────────────                 ──────────────────────────
-Receives:                              Keeps Completely Private:
-• Tool name ("query_db")               • SQL Connection Strings & Passwords
-• Parameter Schema (table, filters)    • Internal Query Logic & Sanitization
-• Structured JSON Output               • VPC Firewalls & Database Drivers
-```
+* **Client View (What the AI Model Sees):**
+  * Tool name: `query_db`
+  * Parameter schema: `{"table": "string", "limit": "int"}`
+  * Structured JSON output payload
+
+* **Server View (Kept Strictly Private):**
+  * SQL connection strings, passwords & DB keys
+  * Internal query logic, filtering & sanitization
+  * VPC firewalls & native database drivers
 
 The AI model only receives the public interface (metadata, parameter names, type constraints) and the final output payload. Your private database connection strings, API tokens, and business logic remain strictly isolated inside the server process.
 
@@ -388,17 +403,26 @@ flowchart TD
 To appreciate the architectural shift, compare traditional application development with agentic protocol integration:
 
 ```text
-TRADITIONAL INTEGRATION ARCHITECTURE
-Application Code ──[ Bespoke REST Client ]──► Target Service (GitHub / Slack)
-* Hard-coded endpoints
+TRADITIONAL INTEGRATION:
+Application Code
+       │
+       ▼  Bespoke REST Client
+Target Service (GitHub / Slack)
+* Hard-coded API endpoints
 * Custom token parsing in app logic
-* Breaking API changes require manual code refactoring
+* Breaking changes break the app
 
-AGENTIC PROTOCOL ARCHITECTURE (MCP)
-LLM Agent ──[ MCP Protocol ]──► MCP Server ──[ REST / SDK ]──► Target Service
-* Dynamic tool discovery via standard schema
-* LLM reasoner selects tools based on semantic descriptions
-* Server handles API updates; agent remains completely decoupled
+AGENTIC MCP ARCHITECTURE:
+LLM Agent
+       │
+       ▼  MCP Protocol (JSON-RPC)
+MCP Server
+       │
+       ▼  REST / SDK
+Target Service (GitHub / Slack)
+* Dynamic tool discovery schema
+* LLM selects tools semantically
+* Server handles API updates; agent stays decoupled
 ```
 
 ## 15. The Employee Mental Model
