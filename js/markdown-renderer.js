@@ -122,8 +122,7 @@ const MarkdownRenderer = {
         `;
       }
 
-      const escapedCode = this.escapeHtml(block.code.trim());
-      const highlighted = this.highlightSyntax(escapedCode, block.lang);
+      const highlighted = this.highlightSyntax(block.code.trim(), block.lang);
 
       return `
         <div class="code-window">
@@ -151,43 +150,61 @@ const MarkdownRenderer = {
   },
 
   highlightSyntax(code, lang) {
-    if (!lang) return code;
+    if (!lang) return this.escapeHtml(code);
     const l = lang.toLowerCase();
 
-    // Python / JS / General highlighting
-    let res = code;
+    // Plain text, markdown, shell, terminal: do not apply keyword highlighting
+    if (['text', 'txt', 'plain', 'plaintext', 'markdown', 'md', 'bash', 'sh', 'shell', 'console', 'terminal', 'mermaid'].includes(l)) {
+      return this.escapeHtml(code);
+    }
 
-    // Strings
-    res = res.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, '<span class="tok-string">$&</span>');
+    // JSON syntax highlighting
+    if (l === 'json') {
+      return this.escapeHtml(code).replace(
+        /("(?:\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*")(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g,
+        (match, string, colon, bool) => {
+          if (string) {
+            if (colon) {
+              return `<span class="tok-kw">${string}</span>${colon}`;
+            }
+            return `<span class="tok-string">${string}</span>`;
+          }
+          if (bool) {
+            return `<span class="tok-kw">${bool}</span>`;
+          }
+          return `<span class="tok-num">${match}</span>`;
+        }
+      );
+    }
 
-    // Comments
-    res = res.replace(/(#|\/\/)(.*)$/gm, '<span class="tok-comment">$&</span>');
+    // First escape HTML special characters
+    const escaped = this.escapeHtml(code);
 
-    // Keywords
-    const keywords = [
-      'def', 'class', 'import', 'from', 'return', 'async', 'await', 'if', 'else', 'elif',
-      'for', 'while', 'in', 'as', 'try', 'except', 'with', 'const', 'let', 'var', 'function',
-      'export', 'default', 'true', 'false', 'None', 'null', 'self'
-    ];
-    const kwRegex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-    res = res.replace(kwRegex, '<span class="tok-kw">$1</span>');
+    // Single-pass tokenizer to ensure HTML tags are never matched or corrupted
+    const tokenRegex = /(["'`])(?:\\.|(?!\1)[^\\\n])*\1|(?:#|\/\/)[^\n]*|\b(?:def|class|import|from|return|async|await|if|else|elif|for|while|in|as|try|except|with|const|let|var|function|export|default|true|false|None|null|self|type|interface|struct)\b|\b\d+(?:\.\d+)?\b|\b[a-zA-Z_]\w*(?=\()/g;
 
-    // Numbers
-    res = res.replace(/\b(\d+(\.\d+)?)\b/g, '<span class="tok-num">$1</span>');
-
-    // Function calls
-    res = res.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\()/g, '<span class="tok-fn">$1</span>');
-
-    return res;
+    return escaped.replace(tokenRegex, (match) => {
+      if (match.startsWith('#') || match.startsWith('//')) {
+        return `<span class="tok-comment">${match}</span>`;
+      }
+      if (match.startsWith('"') || match.startsWith("'") || match.startsWith('`')) {
+        return `<span class="tok-string">${match}</span>`;
+      }
+      if (/^\d/.test(match)) {
+        return `<span class="tok-num">${match}</span>`;
+      }
+      if (/\b(?:def|class|import|from|return|async|await|if|else|elif|for|while|in|as|try|except|with|const|let|var|function|export|default|true|false|None|null|self|type|interface|struct)\b/.test(match)) {
+        return `<span class="tok-kw">${match}</span>`;
+      }
+      return `<span class="tok-fn">${match}</span>`;
+    });
   },
 
   escapeHtml(str) {
     return str
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+      .replace(/>/g, "&gt;");
   },
 
   escapeAttr(str) {
