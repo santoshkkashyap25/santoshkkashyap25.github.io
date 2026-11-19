@@ -76,7 +76,7 @@ const SITE_CONFIG = {
       company: "Tecorb Technologies",
       role: "AI / ML Engineer",
       location: "Noida, Uttar Pradesh",
-      period: "Nov 2024 – Present",
+      period: "Nov 2025 – Present",
       type: "Full-Time",
       highlights: [
         "Architected dual-source parallel RAG retrieval pipelines using MongoDB Atlas HNSW Vector Search and all-MiniLM-L6-v2, cutting retrieval latency by 50% (500ms → 250ms) across concurrent knowledge stores.",
